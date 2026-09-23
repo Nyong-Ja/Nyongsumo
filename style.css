@@ -3610,6 +3610,9 @@ body.theme-light .dict-detail-content > .dict-generic-section .dict-text strong:
 .overlay-promo-hero {
     position: relative;
     width: 100%;
+    min-height: 0;
+    display: block;
+    padding: 0 !important;
     margin: 0 0 18px;
     border: 1px solid rgba(139, 117, 231, .28);
     border-radius: 20px;
@@ -3619,11 +3622,19 @@ body.theme-light .dict-detail-content > .dict-generic-section .dict-text strong:
     isolation: isolate;
 }
 
+.overlay-promo-wrap {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
 .overlay-promo-image {
     display: block;
-    width: 100%;
+    width: 100% !important;
     height: auto;
-    max-width: 1973px;
+    max-width: none;
     margin: 0 auto;
     user-select: none;
     -webkit-user-drag: none;
@@ -3671,47 +3682,4 @@ body.theme-light .dict-detail-content > .dict-generic-section .dict-text strong:
     .overlay-promo-hotspot {
         border-radius: 10px;
     }
-}
-
-/* 뇽스모 오버레이 3.0 배너 - 라운드 박스 꽉 채우기 */
-.overlay-promo-hero {
-    padding: 0 !important;
-    overflow: hidden;
-}
-
-.overlay-promo-wrap {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border-radius: inherit;
-    position: relative;
-}
-
-.overlay-promo-image {
-    display: block;
-    width: 100% !important;
-    max-width: none !important;
-    height: auto !important;
-    margin: 0;
-    padding: 0;
-}
-
-.overlay-promo-hero {
-    padding: 0 !important;
-    margin: 0;
-}
-
-.overlay-promo-hero .overlay-promo-wrap {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 0;
-}
-
-.overlay-promo-hero .overlay-promo-image {
-    width: 100% !important;
-    max-width: none !important;
-    height: auto !important;
-    display: block;
 }
