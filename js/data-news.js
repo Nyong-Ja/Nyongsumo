@@ -7,6 +7,44 @@ const NEWS_DATA = [
     {
         category: "Phasmophobia",
         icon: "👻",
+        date: "2026. 9. 16.",
+        title: "파스모포비아 v0.19.0.2 - 패치 노트",
+        desc: "PS5·Xbox 방 입장 문제 및 파라볼릭 마이크 관련 멀티플레이 음성 문제 수정",
+        img: "https://kineticgames.co.uk/assets/images/16thSeptUpdate.webp",
+        url: "https://kineticgames.co.uk/news/phasmophobia-v01902-patch-notes",
+        detailedHtml: `
+            <div class="news-section-box">
+                <div class="news-sub-title">1. 업데이트 개요 (OVERVIEW)</div>
+                <p>2026년 9월 16일 적용된 v0.19.0.2 업데이트는 지난 업데이트 이후 커뮤니티에서 제보된 문제를 해결하기 위한 소규모 핫픽스입니다.</p>
+                <p style="margin-top: 8px;">이번 패치에서는 <strong>PS5 및 Xbox Series X|S의 방 입장 문제</strong>와 <strong>멀티플레이에서 발생하던 파라볼릭 마이크 관련 음성 문제</strong>가 수정되었습니다.</p>
+            </div>
+
+            <div class="news-section-box">
+                <div class="news-sub-title">2. 주요 버그 수정 (FIXES)</div>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li><strong>PS5 / Xbox Series X|S 방 입장 문제 수정:</strong> 일부 PlayStation 5 및 Xbox Series X|S 플레이어가 싱글플레이 또는 멀티플레이 방에 입장할 수 없던 문제를 수정했습니다.</li>
+                    <li><strong>파라볼릭 마이크 음성 문제 수정:</strong> 멀티플레이에서 다른 플레이어가 파라볼릭 마이크를 켠 직후 떨어뜨렸을 경우, 해당 플레이어의 음성이 먹먹하게 들리던 문제를 수정했습니다.</li>
+                </ul>
+            </div>
+
+            <div class="news-section-box" style="margin-top: 14px;">
+                <div class="news-sub-title">3. 업데이트 요약</div>
+                <ul style="padding-left: 20px; margin-top: 4px;">
+                    <li><strong>업데이트 버전:</strong> v0.19.0.2</li>
+                    <li><strong>업데이트 날짜:</strong> 2026년 9월 16일</li>
+                    <li><strong>주요 내용:</strong> 콘솔 방 입장 문제 및 멀티플레이 음성 문제 수정</li>
+                    <li><strong>신규 콘텐츠:</strong> 없음</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 20px; padding-top: 12px; border-top: 1px dashed var(--card-border); text-align: right; font-size: 0.88rem; color: var(--accent-light);">
+                ✨ <strong>Korean Translated by. 흠먐먀</strong>
+            </div>
+        `
+    },
+    {
+        category: "Phasmophobia",
+        icon: "👻",
         date: "2026. 9. 10.",
         title: "파스모포비아 v0.19.0.1 - 패치 노트",
         desc: "최근 삶의 질(QoL) 업데이트 이후 발생한 주요 버그 수정 및 VR·감옥 제한 구역 개선",
