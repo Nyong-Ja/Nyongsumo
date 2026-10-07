@@ -21,7 +21,7 @@ const NEWS_DATA = [
             </div>
 
             <div class="news-section-box">
-                <div class="news-sub-title">2. 신규 콘텐츠 (NEW)</div>
+                <div class="news-sub-title">2. 신규 콘텐츠 (NEW) 10월 8일에 시작 </div>
                 <ul style="padding-left: 20px; margin-bottom: 10px;">
                     <li>
                         <strong>진홍의 눈 (The Crimson Eye):</strong>
