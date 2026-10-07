@@ -7,6 +7,190 @@ const NEWS_DATA = [
     {
         category: "Phasmophobia",
         icon: "👻",
+        date: "2026. 10. 6.",
+        title: "파스모포비아 v0.19.1.0 - 패치 노트",
+        desc: "진홍의 눈 이벤트 시작 준비 및 시즌 이벤트 토글 기능 추가",
+        img: "https://kineticgames.co.uk/assets/images/CrimsonEyeKA.webp",
+        url: "https://kineticgames.co.uk/news/phasmophobia-v01910-patch-notes",
+        detailedHtml: `
+            <div class="news-section-box">
+                <div class="news-sub-title">1. 업데이트 개요 (OVERVIEW)</div>
+                <p>2026년 10월 6일 적용된 v0.19.1.0 업데이트는 <strong>진홍의 눈(The Crimson Eye)</strong> 이벤트 시작을 준비하기 위한 소규모 업데이트입니다.</p>
+                <p style="margin-top: 8px;">이번 업데이트에서는 진홍의 눈 이벤트 콘텐츠가 추가되었으며, 앞으로 진행될 시즌 이벤트에도 사용할 수 있는 <strong>시즌 이벤트 토글 기능</strong>이 새롭게 추가되었습니다.</p>
+                <p style="margin-top: 8px;">다음 대형 업데이트는 <strong>Unity 6 전환</strong>으로, 11월 출시 예정이며 다양한 버그 수정과 개선 사항이 포함될 예정입니다.</p>
+            </div>
+
+            <div class="news-section-box">
+                <div class="news-sub-title">2. 신규 콘텐츠 (NEW)</div>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li>
+                        <strong>진홍의 눈 (The Crimson Eye):</strong>
+                        진홍의 눈 이벤트가 시작됩니다. 다양한 파스모포비아 맵이 <strong>Blood Moon</strong>의 붉은 빛으로 물들며, 조사를 완료하고 선택 목표 등을 수행하여 이벤트 보상을 획득할 수 있습니다.
+                    </li>
+                    <li style="margin-top: 8px;">
+                        <strong>시즌 이벤트 토글:</strong>
+                        진홍의 눈을 비롯한 앞으로의 시즌 이벤트를 위해 새로운 토글 기능이 추가되었습니다. 이를 통해 세션에서 <strong>이벤트 맵을 활성화하거나 비활성화</strong>할 수 있습니다.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="news-section-box">
+                <div class="news-sub-title">3. 주요 버그 수정 (FIXES)</div>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li>
+                        <strong>부활 시 흰색 조명 효과 수정:</strong>
+                        플레이어가 부활했을 때 흰색 조명이 천천히 나타났다 사라지는 대신 순간적으로 깜빡이던 문제를 수정했습니다.
+                    </li>
+                    <li>
+                        <strong>이스터 에그 보상 해금 문제 수정:</strong>
+                        배율이 0배인 상태에서 보상 팝업이 표시되었음에도 이스터 에그 보상이 해금되지 않을 수 있던 문제를 수정했습니다.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="news-section-box" style="margin-top: 14px;">
+                <div class="news-sub-title">4. 알려진 문제 (KNOWN ISSUES)</div>
+                <ul style="padding-left: 20px; margin-top: 4px;">
+                    <li>
+                        <strong>6 탱글우드 드라이브 가로등:</strong>
+                        플레이어가 바라볼 경우 외부 가로등이 빛나는 것처럼 보일 수 있습니다. <strong>(Xbox 및 Steam 전용)</strong>
+                    </li>
+                    <li>
+                        <strong>트럭 퓨즈박스 위치 표시:</strong>
+                        커스텀 난이도에서 플레이할 경우 트럭 지도에서 퓨즈박스 위치가 숨겨지지 않습니다.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="news-section-box" style="margin-top: 14px;">
+                <div class="news-sub-title">5. 앞으로의 일정</div>
+                <p><strong>🔴 진홍의 눈 (The Crimson Eye)</strong></p>
+                <ul style="padding-left: 20px; margin-top: 6px;">
+                    <li><strong>이벤트 시작: 2026년 10월 8일</strong></li>
+                    <li>Blood Moon이 적용된 이벤트 맵에서 조사 및 선택 목표를 수행할 수 있습니다.</li>
+                    <li>시즌 이벤트 토글을 이용해 이벤트 맵 활성화 여부를 선택할 수 있습니다.</li>
+                </ul>
+
+                <p style="margin-top: 12px;"><strong>⚙️ 다음 대형 업데이트 = Unity 6</strong></p>
+                <ul style="padding-left: 20px; margin-top: 6px;">
+                    <li><strong>출시 예정: 2026년 11월</strong></li>
+                    <li>다양한 버그 수정 및 게임 개선 사항이 포함될 예정입니다.</li>
+                    <li>세부 내용은 추후 개발 미리보기를 통해 공개될 예정입니다.</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 20px; padding-top: 12px; border-top: 1px dashed var(--card-border); text-align: right; font-size: 0.88rem; color: var(--accent-light);">
+                ✨ <strong>Korean Translated by. 흠먐먀</strong>
+            </div>
+        `
+    },
+    {
+        category: "Phasmophobia",
+        icon: "👻",
+        date: "2026. 10. 1.",
+        title: "파스모포비아 - 진홍의 눈이 다시 찾아옵니다",
+        desc: "2026 진홍의 눈 이벤트 일정, 대상 맵, 보상 및 Twitch Drop 안내",
+        img: "https://kineticgames.co.uk/assets/images/CrimsonDates.webp",
+        url: "https://kineticgames.co.uk/news/the-crimson-eye-approaches-once-more",
+        detailedHtml: `
+            <div class="news-section-box">
+                <div class="news-sub-title">1. 이벤트 개요 (OVERVIEW)</div>
+                <p>파스모포비아의 대표적인 시즌 이벤트 <strong>진홍의 눈(The Crimson Eye)</strong>이 2026년에도 다시 찾아옵니다.</p>
+                <p style="margin-top: 8px;">2026년 진홍의 눈 이벤트는 <strong>10월 8일부터 11월 1일까지</strong> 진행되며, 이벤트 콘텐츠가 포함된 업데이트는 <strong>10월 7일</strong> 배포될 예정입니다.</p>
+                <p style="margin-top: 8px;">이벤트 기간 동안 특정 맵에서 조사를 진행하고 <strong>Blood Moon 토템</strong>을 찾아 조사 및 선택 목표를 완료하면 이벤트 포인트를 획득할 수 있습니다.</p>
+            </div>
+
+            <div class="news-section-box">
+                <div class="news-sub-title">2. 이벤트 대상 맵</div>
+                <p>진홍의 눈 이벤트는 다음 맵에서 진행됩니다.</p>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li>6 탱글우드 드라이브</li>
+                    <li>42 엣지필드 로드</li>
+                    <li>그라프톤 농가</li>
+                    <li>13 윌로우 스트리트</li>
+                    <li>블리즈데일 농가</li>
+                    <li><strong>포인트 호프</strong> - 일반 맵만 포함되며 제한 구역은 제외됩니다.</li>
+                    <li>캠프 우드윈드</li>
+                    <li>넬의 식당</li>
+                </ul>
+                <p style="margin-top: 8px;">특히 올해는 <strong>넬의 식당</strong>과 새롭게 리워크된 <strong>6 탱글우드 드라이브 및 13 윌로우 스트리트</strong>가 붉은색으로 꾸며진 모습을 만나볼 수 있습니다.</p>
+            </div>
+
+            <div class="news-section-box">
+                <div class="news-sub-title">3. 이벤트 진행 방식</div>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li><strong>Blood Moon 토템 찾기:</strong> 이벤트 맵 곳곳에 등장하는 Blood Moon 토템을 찾아야 합니다.</li>
+                    <li><strong>조사 완료:</strong> 일반적인 유령 조사를 진행하여 이벤트 포인트를 획득할 수 있습니다.</li>
+                    <li><strong>선택 목표:</strong> 추가 목표를 완료하여 더 많은 이벤트 포인트를 획득할 수 있습니다.</li>
+                    <li><strong>Blood Moon 날씨:</strong> 이벤트 기간 동안 Blood Moon 날씨가 등장하며 유령으로 인한 위협이 더욱 커집니다.</li>
+                </ul>
+            </div>
+
+            <div class="news-section-box">
+                <div class="news-sub-title">4. 이벤트 보상</div>
+                <p>이벤트 기간 동안 다양한 보상을 해금할 수 있습니다.</p>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li><strong>시즌 이벤트 티셔츠</strong></li>
+                    <li><strong>Beholder ID 카드 & 배지 세트</strong></li>
+                    <li><strong>Blood Moon 장식품</strong></li>
+                </ul>
+                <p style="margin-top: 8px;">또한 이벤트 포인트를 모아 업그레이드할 수 있는 <strong>트로피</strong>도 제공됩니다.</p>
+                <p style="margin-top: 8px;">이전에 진홍의 눈 이벤트에서 트로피를 이미 획득한 플레이어는 새로운 트로피를 받는 대신 기존 트로피에 포인트가 누적되어 계속 업그레이드됩니다.</p>
+            </div>
+
+            <div class="news-section-box">
+                <div class="news-sub-title">5. Twitch Drop</div>
+                <p>진홍의 눈 이벤트 첫 주에는 모든 파스모포비아 스트리머를 대상으로 <strong>Twitch Drop</strong> 이벤트가 진행됩니다.</p>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li><strong>보상:</strong> Crimson Eye 티셔츠</li>
+                    <li><strong>시청 시간:</strong> 파스모포비아 방송 총 2시간</li>
+                    <li><strong>기간:</strong> 이벤트 시작 시점부터 2026년 10월 15일 23:59 BST까지</li>
+                </ul>
+                <p style="margin-top: 8px;">파스모포비아 스트리머의 방송을 누적 2시간 시청하면 보상을 획득할 수 있습니다.</p>
+            </div>
+
+            <div class="news-section-box">
+                <div class="news-sub-title">6. Double XP & Rewards</div>
+                <p>진홍의 눈 이벤트 기간 중 <strong>더블 XP & 보상 이벤트</strong>도 진행됩니다.</p>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li><strong>기간:</strong> 2026년 10월 15일 ~ 10월 22일</li>
+                    <li><strong>내용:</strong> 조사를 완료했을 때 획득하는 모든 보상이 2배로 증가합니다.</li>
+                </ul>
+            </div>
+
+            <div class="news-section-box">
+                <div class="news-sub-title">7. Ghost Hunts 4 Hearts</div>
+                <p>진홍의 눈 마지막 주에는 <strong>American Heart Association(AHA)</strong>와 함께하는 <strong>Ghost Hunts 4 Hearts</strong>가 다시 진행됩니다.</p>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li><strong>기간:</strong> 2026년 10월 26일 ~ 11월 1일</li>
+                    <li><strong>주최:</strong> Kinetic Games × American Heart Association</li>
+                    <li><strong>대상:</strong> 모든 파스모포비아 크리에이터 및 플레이어</li>
+                </ul>
+                <p style="margin-top: 8px;">지난해 Ghost Hunts 4 Hearts를 통해 파스모포비아 커뮤니티는 <strong>10만 달러 이상</strong>을 모금했습니다.</p>
+                <p style="margin-top: 8px;">올해는 더욱 큰 규모로 진행될 예정이며, 이벤트와 보상은 모든 파스모포비아 크리에이터와 플레이어가 참여할 수 있도록 제공됩니다.</p>
+                <p style="margin-top: 8px;">세부적인 내용은 이벤트 시작에 가까워지면 추가로 공개될 예정입니다.</p>
+            </div>
+
+            <div class="news-section-box" style="margin-top: 14px;">
+                <div class="news-sub-title">8. 2026 진홍의 눈 일정 요약</div>
+                <ul style="padding-left: 20px; margin-top: 4px;">
+                    <li><strong>10월 7일:</strong> 진홍의 눈 업데이트 배포</li>
+                    <li><strong>10월 8일:</strong> 진홍의 눈 이벤트 시작</li>
+                    <li><strong>10월 8일 ~ 10월 15일:</strong> Twitch Drop</li>
+                    <li><strong>10월 15일 ~ 10월 22일:</strong> Double XP & Rewards</li>
+                    <li><strong>10월 26일 ~ 11월 1일:</strong> Ghost Hunts 4 Hearts</li>
+                    <li><strong>11월 1일:</strong> 진홍의 눈 이벤트 종료</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 20px; padding-top: 12px; border-top: 1px dashed var(--card-border); text-align: right; font-size: 0.88rem; color: var(--accent-light);">
+                ✨ <strong>Korean Translated by. 흠먐먀</strong>
+            </div>
+        `
+    },
+    {
+        category: "Phasmophobia",
+        icon: "👻",
         date: "2026. 9. 16.",
         title: "파스모포비아 v0.19.0.2 - 패치 노트",
         desc: "PS5·Xbox 방 입장 문제 및 파라볼릭 마이크 관련 멀티플레이 음성 문제 수정",
