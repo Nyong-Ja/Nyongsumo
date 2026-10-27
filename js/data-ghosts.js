@@ -412,6 +412,14 @@ const GHOST_DATA = [
                     <div><b>정지</b><strong>1.20 m/s</strong><i>→</i><b>이동</b><strong>2.25 m/s</strong></div>
                 </section>
             </div>
+
+                <section class="dayan-section">
+                    <div class="dayan-section-head"><span>07</span><div><h3>판별 테스트 체크리스트</h3><p>기존 다얀의 기준 수치를 유지하며 조건을 분리해 검증합니다.</p></div></div>
+                    <div class="dayan-table-wrap"><table class="dayan-table"><thead><tr><th>테스트</th><th>방법</th><th>기대 관찰</th></tr></thead><tbody>
+                    <tr><td>거리 조건</td><td>가장 가까운 플레이어가 10m 안팎에 있는 상황 비교</td><td>10m 이내에서 플레이어 상태가 속도·사냥 정신력에 영향</td></tr><tr><td>정지 상태</td><td>가까운 플레이어가 멈춘 동안 사냥 속도 기록</td><td>1.2 m/s · 사냥 정신력 기준 45%</td></tr><tr><td>이동 상태</td><td>같은 조건에서 가장 가까운 플레이어가 이동</td><td>2.25 m/s · 사냥 정신력 기준 65%</td></tr><tr><td>기본 상태</td><td>10m 안에 플레이어가 없도록 거리를 벌려 비교</td><td>1.7 m/s · 사냥 정신력 기준 50%</td></tr>
+                    </tbody></table></div>
+                    <p class="dict-text">플레이어가 여러 명이면 반경 10m 안에서 가장 가까운 플레이어를 기준으로 판단합니다. 층이 달라도 영향받을 수 있으므로 같은 조건을 반복하세요.</p>
+                </section>
         `
     },
     {
@@ -590,6 +598,20 @@ const GHOST_DATA = [
             <p class="dict-text">
                 • <strong>소금 자국 체크:</strong> 소금을 밟는 소리는 나지만 UV 라이트로 보았을 때 소금 자국이 안 남는다면 분노 상태의 갈루입니다.
             </p>
+
+            <div class="dict-section-title">5. 상태·속도 비교표</div>
+            <table class="dict-table"><thead><tr><th>상태</th><th>속도</th><th>판별 기준</th></tr></thead><tbody>
+            <tr><td>일반</td><td>1.70 m/s</td><td>기본 상태</td></tr><tr><td>분노</td><td>1.96 m/s</td><td>방어 장비 등 자극을 받은 뒤 빨라짐</td></tr><tr><td>약화</td><td>1.44 m/s</td><td>분노 상태 이후 느려진 상태</td></tr>
+            </tbody></table>
+            <p class="dict-text">사냥 중 동일 조건으로 반복 비교하고, 일반 LOS 가속과 상태별 속도를 혼동하지 마세요. 소금은 티어와 밟은 시점, 남은 흔적을 함께 기록합니다.</p>
+            <div class="dict-section-title">6. 대표 판별 테스트</div>
+            <table class="dict-table"><thead><tr><th>테스트</th><th>방법</th><th>관찰 포인트</th></tr></thead><tbody>
+            <tr><td>A. 상태 변화</td><td>방어 장비와 상호작용한 전후의 사냥 속도를 비교</td><td>일반→분노→약화 변화와 일치하는지</td></tr><tr><td>B. 소금 테스트</td><td>안전한 위치에서 사냥 중 소금 흔적 관찰</td><td>상태·소금 티어·타이밍을 함께 확인</td></tr><tr><td>C. 속도 교차 확인</td><td>여러 사냥에서 동일한 거리·시야 조건으로 비교</td><td>한 번의 1.96 또는 1.44 m/s 관찰만으로 확정하지 않기</td></tr>
+            </tbody></table>
+            <div class="dict-section-title">7. 다른 유령과의 구분</div>
+            <table class="dict-table"><thead><tr><th>관찰</th><th>해석</th><th>주의</th></tr></thead><tbody>
+            <tr><td>방어 장비 사용 후 속도 증가</td><td>갈루의 분노 상태 가능성</td><td>장비 종류와 사냥 전후 상태 기록</td></tr><tr><td>느린 사냥 속도</td><td>약화 상태 가능성</td><td>다른 저속 유령과 교차 비교</td></tr><tr><td>소금 흔적 변화</td><td>상태를 가늠하는 단서</td><td>소금 티어와 상호작용 타이밍 확인</td></tr>
+            </tbody></table>
         `
     },
     {
@@ -633,6 +655,19 @@ const GHOST_DATA = [
             <p class="dict-text">
                 • <strong>트럭 모니터 관찰:</strong> 카메라인 상태로 방에서 모두 나온 뒤 트럭 모니터로 관찰하는 것이 정석입니다.
             </p>
+
+            <div class="dict-section-title">5. 핵심 규칙 비교표</div>
+            <table class="dict-table"><thead><tr><th>항목</th><th>고료의 규칙</th><th>판별 시 주의</th></tr></thead><tbody>
+            <tr><td>증거</td><td>EMF 5 · 자외선 · D.O.T.S.</td><td>D.O.T.S.는 고정 증거</td></tr><tr><td>D.O.T.S. 관찰</td><td>비디오 카메라로 관찰하며 플레이어가 유령 방 안에 있으면 관찰 조건이 충족되지 않음</td><td>카메라가 활성 D.O.T.S. 구역을 향하는지 확인</td></tr><tr><td>선호 방</td><td>선호 방을 바꾸지 않음</td><td>짧은 로밍과 선호 방 변경 구분</td></tr><tr><td>속도</td><td>기본 1.7 m/s, 표준 LOS 가속</td><td>전용 속도 변화 능력 없음</td></tr>
+            </tbody></table>
+            <div class="dict-section-title">6. 판별 테스트</div>
+            <table class="dict-table"><thead><tr><th>테스트</th><th>방법</th><th>확인할 점</th></tr></thead><tbody>
+            <tr><td>A. 카메라 D.O.T.S.</td><td>비디오 카메라를 D.O.T.S. 구역으로 향하게 두고 방 밖에서 관찰</td><td>실루엣이 카메라 화면에 나타나는지</td></tr><tr><td>B. 방 비우기</td><td>모든 플레이어가 유령 방 밖으로 나가 관찰</td><td>방 안에 플레이어가 있을 때와 조건 비교</td></tr><tr><td>C. 선호 방 추적</td><td>조사 중 활동 중심과 상호작용 위치 기록</td><td>짧은 로밍이 아닌 선호 방 변경인지 확인</td></tr><tr><td>D. 증거 확인</td><td>EMF 5와 자외선도 함께 확인</td><td>D.O.T.S.만 기다리며 다른 증거를 놓치지 않기</td></tr>
+            </tbody></table>
+            <div class="dict-section-title">7. 다른 유령과의 구분</div>
+            <table class="dict-table"><thead><tr><th>관찰</th><th>해석</th><th>판별 강도</th></tr></thead><tbody>
+            <tr><td>방 밖 카메라에서만 D.O.T.S. 실루엣 확인</td><td>고료의 대표 단서</td><td>강함 — 증거 조합과 교차 확인</td></tr><tr><td>육안으로 D.O.T.S.가 보이지 않음</td><td>고료 가능성은 있으나 단독 확정 불가</td><td>약함 — 관찰 횟수·장비 배치 확인</td></tr><tr><td>선호 방이 바뀐 것처럼 보임</td><td>짧은 로밍이나 방 경계 착각 가능</td><td>실제 선호 방 변경인지 재확인</td></tr>
+            </tbody></table>
         `
     },
     {
