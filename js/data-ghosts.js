@@ -420,6 +420,17 @@ const GHOST_DATA = [
                     </tbody></table></div>
                     <p class="dict-text">플레이어가 여러 명이면 반경 10m 안에서 가장 가까운 플레이어를 기준으로 판단합니다. 층이 달라도 영향받을 수 있으므로 같은 조건을 반복하세요.</p>
                 </section>
+                <section class="dayan-section">
+                    <div class="dayan-section-head"><span>08</span><div><h3>추가 판별 조건과 예외</h3><p>기존 다얀 핵심 수치와 상세 디자인을 유지하면서 실전 판별 조건을 보충합니다.</p></div></div>
+                    <div class="dayan-table-wrap"><table class="dayan-table"><thead><tr><th>항목</th><th>확인된 규칙</th><th>실전 적용</th></tr></thead><tbody>
+                    <tr><td>기준 플레이어</td><td>10m 이내에서 가장 가까운 플레이어의 움직임을 기준으로 함</td><td>더 가까운 플레이어가 바뀌면 판정 대상도 달라질 수 있음</td></tr>
+                    <tr><td>층 차이</td><td>다른 층의 플레이어도 거리 조건에 영향을 줄 수 있음</td><td>층이 다르다는 이유만으로 영향이 없다고 단정하지 않기</td></tr>
+                    <tr><td>LOS 가속</td><td>특수 범위 밖에서는 기본 1.7 m/s와 표준 LOS 가속이 적용될 수 있음</td><td>10m 이내의 1.2/2.25 m/s와 일반 LOS 가속을 혼동하지 않기</td></tr>
+                    <tr><td>성별</td><td>여성 전용 유령</td><td>남성 이름·모델·음성은 다얀 가설과 맞지 않음</td></tr>
+                    <tr><td>정신력 기준</td><td>정지 45% / 기본 50% / 이동 65%</td><td>팀 평균 정신력 및 실제 사냥 조건을 함께 고려</td></tr>
+                    </tbody></table></div>
+                    <div class="dayan-warning"><strong>테스트 안전 주의</strong><p>정지·이동 테스트는 정화향초와 탈출 경로를 준비하고 안전한 조건에서 진행하세요. 거리 측정 오차와 이동 경로 때문에 한 번의 속도 측정은 흔들릴 수 있으므로 동일 조건에서 반복 비교합니다.</p></div>
+                </section>
         `
     },
     {
@@ -561,14 +572,14 @@ const GHOST_DATA = [
         name: "갈루",
         engName: "Gallu",
         evidences: ["EMF 5", "주파수 측정기", "UV 라이트"],
-        sanity: "50%",
-        speed: "기본 1.7 m/s / 분노 상태 1.96 m/s / 약화 상태 1.44 m/s",
+        sanity: "일반 50% / 분노 60% / 약화 40%",
+        speed: "일반 1.7 m/s / 분노 1.955 m/s / 약화 1.36 m/s",
         ytUrl: "https://www.youtube.com/results?search_query=파스모포비아+갈루+공략",
         tip: `<strong>1. 3단계 상태 변환 메커니즘</strong><br>
-              • <strong>상태 순환:</strong> [일반(1.7m/s) ➔ 분노(1.96m/s) ➔ 약화(1.44m/s)] 순서로 성격이 변화합니다.<br>
-              • <strong>분노 트리거:</strong> 방어 장비(소금, 십자가, 정화향초)에 자극받으면 즉시 분노 상태가 됩니다.<br>
-              • <strong>분노 시 소금 면역:</strong> 분노 상태에서는 <strong>1.96 m/s로 빨라지며 소금을 밟아도 자국을 전혀 남기지 않습니다.</strong>`,
-        huntSanity: "50%",
+              • <strong>상태 순환:</strong> [일반(1.7 m/s, 50%) → 분노(1.955 m/s, 60%) → 약화(1.36 m/s, 40%)] 순서로 성격이 변화합니다.<br>
+              • <strong>분노 트리거:</strong> 십자가가 사냥을 막거나, 사냥 중 정화향초의 실명 효과가 끝나거나, 사냥 밖에서 정화향초를 사용하거나, 소금을 밟은 뒤 약 2–3초가 지나면 상태가 한 단계 상승합니다.<br>
+              • <strong>분노 시 소금 면역:</strong> 분노 상태는 1.955 m/s이며 소금 발자국을 남기지 않습니다. 약화 상태에서는 소금 접촉 후 발자국 6개를 남깁니다.`,
+        huntSanity: "일반 50% / 분노 60% / 약화 40%",
         specialTrait: "일반 ➔ 분노(1.96m/s) ➔ 약화(1.44m/s) 3단계 상태 변화. 분노 시 소금 밟아도 자국 안 남김.",
         forcedEvidence: "없음",
         hasAccel: true,
@@ -579,9 +590,9 @@ const GHOST_DATA = [
         detailedHtml: `
             <div class="dict-section-title">1. 사냥 및 상태 변환 메커니즘 (State Cycle)</div>
             <p class="dict-text">
-                • <strong>3단계 상태 순환:</strong> [일반 상태(1.7m/s) ➔ 분노 상태(1.96m/s) ➔ 약화 상태(1.44m/s)] 순서로 성격이 변화합니다.<br>
-                • <strong>분노 트리거:</strong> 방어 장비(소금 밟기, 십자가 태우기, 정화향초 노출)에 자극을 받으면 즉시 분노 상태로 전환됩니다.<br>
-                • <strong>분노 상태 특성:</strong> 속도가 <strong>1.96 m/s로 상승</strong>하며, 사냥 중 소금을 밟아도 <strong>소금 자국/UV 라이트를 전혀 남기지 않습니다.</strong>
+                • <strong>상태 순환:</strong> 일반(1.70 m/s, 사냥 기준 50%) → 분노(1.955 m/s, 60%) → 사냥 종료 후 약화(1.36 m/s, 40%) → 일반 순서로 순환합니다.<br>
+                • <strong>분노 트리거:</strong> 십자가가 사냥을 막거나, 사냥 중 정화향초 실명 효과가 끝나거나, 사냥 밖에서 정화향초를 사용하거나, 소금을 밟은 뒤 약 2–3초가 지나면 상태가 한 단계 상승합니다. 모든 트리거가 즉시 적용되는 것은 아닙니다.<br>
+                • <strong>분노 상태 특성:</strong> 분노 상태는 1.955 m/s이며 소금 발자국을 남기지 않습니다. 약화 상태에서는 소금 접촉 후 6개 발자국을 남깁니다(일반 유령은 4개).
             </p>
             <div class="dict-section-title">2. 증거 (Evidence)</div>
             <p class="dict-text">
@@ -601,7 +612,7 @@ const GHOST_DATA = [
 
             <div class="dict-section-title">5. 상태·속도 비교표</div>
             <table class="dict-table"><thead><tr><th>상태</th><th>속도</th><th>판별 기준</th></tr></thead><tbody>
-            <tr><td>일반</td><td>1.70 m/s</td><td>기본 상태</td></tr><tr><td>분노</td><td>1.96 m/s</td><td>방어 장비 등 자극을 받은 뒤 빨라짐</td></tr><tr><td>약화</td><td>1.44 m/s</td><td>분노 상태 이후 느려진 상태</td></tr>
+            <tr><td>일반</td><td>1.70 m/s</td><td>사냥 기준 50%, 정화향초 실명 5초</td></tr><tr><td>분노</td><td>1.955 m/s</td><td>사냥 기준 60%, 소금 발자국 없음</td></tr><tr><td>약화</td><td>1.36 m/s</td><td>사냥 종료 후 적용, 사냥 기준 40%, 소금 발자국 6개</td></tr>
             </tbody></table>
             <p class="dict-text">사냥 중 동일 조건으로 반복 비교하고, 일반 LOS 가속과 상태별 속도를 혼동하지 마세요. 소금은 티어와 밟은 시점, 남은 흔적을 함께 기록합니다.</p>
             <div class="dict-section-title">6. 대표 판별 테스트</div>
@@ -612,6 +623,16 @@ const GHOST_DATA = [
             <table class="dict-table"><thead><tr><th>관찰</th><th>해석</th><th>주의</th></tr></thead><tbody>
             <tr><td>방어 장비 사용 후 속도 증가</td><td>갈루의 분노 상태 가능성</td><td>장비 종류와 사냥 전후 상태 기록</td></tr><tr><td>느린 사냥 속도</td><td>약화 상태 가능성</td><td>다른 저속 유령과 교차 비교</td></tr><tr><td>소금 흔적 변화</td><td>상태를 가늠하는 단서</td><td>소금 티어와 상호작용 타이밍 확인</td></tr>
             </tbody></table>
+            <div class="dict-section-title">8. 상태 전환 트리거·방어 장비 효과</div>
+            <table class="dict-table"><thead><tr><th>이벤트</th><th>효과</th><th>주의</th></tr></thead><tbody>
+            <tr><td>십자가가 사냥을 막음</td><td>상태 한 단계 상승</td><td>실제로 갈루의 사냥을 막았는지 확인</td></tr>
+            <tr><td>사냥 중 정화향초</td><td>실명 효과 종료 후 한 단계 상승</td><td>향초 사용 순간이 아니라 실명 효과 종료 시점</td></tr>
+            <tr><td>사냥 밖 정화향초</td><td>한 단계 상승</td><td>사냥 중 사용과 구분</td></tr>
+            <tr><td>소금 접촉</td><td>약 2–3초 후 한 단계 상승</td><td>즉시 전환으로 단정하지 않기</td></tr>
+            <tr><td>분노 상태</td><td>십자가 범위 -2m, 향초 실명 4초</td><td>일반 상태 실명은 5초</td></tr>
+            <tr><td>약화 상태</td><td>십자가 범위 +1m, 향초 실명 6초</td><td>소금 접촉 후 발자국 6개</td></tr>
+            </tbody></table>
+            <p class="dict-text">상태별 기본 속도와 시야(LOS) 가속은 별개입니다. 테스트에서는 시야 유지 시간, 거리, 소금 티어를 통제하고 여러 사냥에서 반복 확인하세요.</p>
         `
     },
     {
@@ -619,14 +640,14 @@ const GHOST_DATA = [
         engName: "Goryo",
         evidences: ["EMF 5", "UV 라이트", "도트"],
         sanity: "50%",
-        speed: "1.7 m/s (가속 O)",
+        speed: "기본 1.7 m/s (표준 LOS 가속 적용)",
         ytUrl: "https://www.youtube.com/results?search_query=파스모포비아+고료+공략",
         tip: `<strong>1. 도트 상호작용 및 룸 고정 특수 룰</strong><br>
               • <strong>비디오 카메라 전용 관찰:</strong> 도트는 <strong>육안으로 볼 수 없으며 오직 비디오 카메라 화면을 통해서만</strong> 모습을 드러냅니다.<br>
               • <strong>플레이어 부재 필수:</strong> 방 안에 플레이어가 1명이라도 서 있으면 도트를 절대 발동하지 않습니다.<br>
               • <strong>고스트 룸 변경 없음:</strong> 고스트 룸을 절대 변경하지 않는 강한 애착을 보입니다. [도트 고정 증거]`,
         huntSanity: "50%",
-        specialTrait: "도트 고정 증거, 사람이 방에 없어야 카메라로만 도트 관찰 가능, 고스트 룸을 거의 변경하지 않음.",
+        specialTrait: "도트 고정 증거, 사람이 방에 없어야 카메라로만 도트 관찰 가능, 선호 방을 변경하지 않음.",
         forcedEvidence: "도트",
         hasAccel: true,
         hasSpecialSpeed: false,
@@ -638,7 +659,7 @@ const GHOST_DATA = [
             <p class="dict-text">
                 • <strong>비디오 카메라 전용 관찰:</strong> 고료의 도트는 <strong>육안으로 절대 볼 수 없으며, 오직 비디오 카메라 화면을 통해서만</strong> 모습을 드러냅니다.<br>
                 • <strong>부재 조건 필수:</strong> 같은 방에 플레이어가 단 한 명이라도 서 있으면 도트를 절대로 발동하지 않습니다.<br>
-                • <strong>고스트 룸 변경 없음:</strong> 고료는 고스트 룸을 절대 변경하지 않는 강한 애착 성향을 보입니다.
+                • <strong>고스트 룸 변경 없음:</strong> 고료는 선호 방을 변경하지 않습니다. 짧은 로밍은 가능하므로 다른 위치의 상호작용만으로 방이 바뀌었다고 판단하지 않습니다.<br>• <strong>사냥:</strong> 기본 속도 1.70 m/s이며 표준 시야 가속이 적용됩니다. 전용 사냥 속도 능력은 없습니다.
             </p>
             <div class="dict-section-title">2. 증거 (Evidence)</div>
             <p class="dict-text">
@@ -658,7 +679,7 @@ const GHOST_DATA = [
 
             <div class="dict-section-title">5. 핵심 규칙 비교표</div>
             <table class="dict-table"><thead><tr><th>항목</th><th>고료의 규칙</th><th>판별 시 주의</th></tr></thead><tbody>
-            <tr><td>증거</td><td>EMF 5 · 자외선 · D.O.T.S.</td><td>D.O.T.S.는 고정 증거</td></tr><tr><td>D.O.T.S. 관찰</td><td>비디오 카메라로 관찰하며 플레이어가 유령 방 안에 있으면 관찰 조건이 충족되지 않음</td><td>카메라가 활성 D.O.T.S. 구역을 향하는지 확인</td></tr><tr><td>선호 방</td><td>선호 방을 바꾸지 않음</td><td>짧은 로밍과 선호 방 변경 구분</td></tr><tr><td>속도</td><td>기본 1.7 m/s, 표준 LOS 가속</td><td>전용 속도 변화 능력 없음</td></tr>
+            <tr><td>증거</td><td>EMF 5 · 자외선 · D.O.T.S.</td><td>D.O.T.S.는 고정 증거</td></tr><tr><td>D.O.T.S. 관찰</td><td>비디오 카메라로 관찰하며 플레이어가 유령 방 안에 있으면 관찰 조건이 충족되지 않음</td><td>카메라가 활성 D.O.T.S. 구역을 향하는지 확인</td></tr><tr><td>선호 방</td><td>변경하지 않음</td><td>짧은 로밍·상호작용 위치와 구분</td></tr><tr><td>속도</td><td>기본 1.70 m/s, 표준 LOS 가속</td><td>전용 속도 변화 능력 없음</td></tr><tr><td>사냥 정신력</td><td>50%</td><td>일반 유령과 같은 기준</td></tr>
             </tbody></table>
             <div class="dict-section-title">6. 판별 테스트</div>
             <table class="dict-table"><thead><tr><th>테스트</th><th>방법</th><th>확인할 점</th></tr></thead><tbody>
@@ -668,6 +689,14 @@ const GHOST_DATA = [
             <table class="dict-table"><thead><tr><th>관찰</th><th>해석</th><th>판별 강도</th></tr></thead><tbody>
             <tr><td>방 밖 카메라에서만 D.O.T.S. 실루엣 확인</td><td>고료의 대표 단서</td><td>강함 — 증거 조합과 교차 확인</td></tr><tr><td>육안으로 D.O.T.S.가 보이지 않음</td><td>고료 가능성은 있으나 단독 확정 불가</td><td>약함 — 관찰 횟수·장비 배치 확인</td></tr><tr><td>선호 방이 바뀐 것처럼 보임</td><td>짧은 로밍이나 방 경계 착각 가능</td><td>실제 선호 방 변경인지 재확인</td></tr>
             </tbody></table>
+            <div class="dict-section-title">8. 확정·배제 조건 및 테스트 한계</div>
+            <table class="dict-table"><thead><tr><th>관찰 결과</th><th>해석</th><th>주의</th></tr></thead><tbody>
+            <tr><td>방 안에 아무도 없을 때 카메라에서 D.O.T.S. 실루엣 관찰</td><td>고료를 강하게 지지</td><td>카메라가 활성 D.O.T.S. 구역을 향하는지 확인</td></tr>
+            <tr><td>육안으로 D.O.T.S. 실루엣을 직접 봄</td><td>고료와 맞지 않음</td><td>실제 D.O.T.S. 실루엣인지 재확인</td></tr>
+            <tr><td>증거가 1–2개로 제한된 난이도에서 D.O.T.S. 없음</td><td>고료를 배제할 수 있는 단서</td><td>프로젝터 배치·활성 여부·관찰 시간을 먼저 점검</td></tr>
+            <tr><td>유령이 방 경계 밖에서 상호작용</td><td>선호 방 변경의 증거가 아님</td><td>짧은 로밍은 가능</td></tr>
+            </tbody></table>
+            <p class="dict-text">고료는 D.O.T.S.가 고정 증거입니다. 관찰 실패 한 번만으로 배제하지 말고 플레이어 부재, 카메라 방향, 프로젝터 범위, 관찰 시간을 통제해 반복하세요. 다른 증거가 제한된 난이도에서는 고료의 고정 D.O.T.S. 여부를 함께 확인합니다.</p>
         `
     },
     {
