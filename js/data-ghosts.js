@@ -137,14 +137,16 @@ const GHOST_DATA = [
         engName: "Poltergeist",
         evidences: ["주파수 측정기", "UV 라이트", "고스트 라이팅"],
         sanity: "50%",
-        speed: "1.7 m/s (가속 O)",
+        speed: "1.7 m/s (LOS 가속 O)",
         ytUrl: "https://www.youtube.com/results?search_query=파스모포비아+폴터가이스트+공략",
-        tip: `<strong>1. 물건 투척 및 사냥 메커니즘</strong><br>
-              • <strong>기본 사냥 조건:</strong> 평균 정신력이 <strong>50% 이하</strong>일 때 사냥을 시작합니다.<br>
-              • <strong>다중 물건 폭발 투척 (Polter Bomb):</strong> 물건이 모여 있을 때 <strong>여러 물건을 동시에 폭발하듯 던지는 특수 능력</strong>을 사용합니다.<br>
-              • <strong>정신력 차감 & 0.5초 투척:</strong> 폭발 시 던져진 <strong>물건 1개당 정신력이 2%씩 차감</strong>되며, 사냥 중에도 0.5초마다 물건을 던집니다.`,
+        tip: `<strong>1. 고유 능력 — 폴터가이스트 익스플로전</strong><br>
+              • <strong>다중 투척:</strong> 능력 범위 안의 여러 투척 가능 물건을 한꺼번에 던집니다.<br>
+              • <strong>정신력 감소:</strong> 능력으로 던져진 물건은 공개 자료 기준 물건당 2% 감소를 유발합니다. 위치와 관측 조건을 고려하세요.<br>
+              • <strong>EMF:</strong> 능력 지점에서 EMF 2, 개별 투척 물건에서 EMF 3을 관측할 수 있습니다. EMF 5 증거와 혼동하지 마세요.<br>
+              • <strong>일반 투척:</strong> 공개 자료 기준 상호작용 시 20% 확률로 투척 상태를 선택합니다.<br>
+              • <strong>사냥:</strong> 사냥 중 범위 내에 던질 수 있는 물건이 있으면 0.5초마다 투척을 시도하는 것으로 알려져 있습니다.`,
         huntSanity: "50%",
-        specialTrait: "다중 물건 동시 투척, 사냥 시 0.5초마다 물건 투척, 투척 물건 1개당 정신력 2% 차감.",
+        specialTrait: "폴터가이스트 익스플로전으로 여러 물건을 동시에 투척하며, 물건당 정신력 감소와 투척 물건의 EMF 반응이 식별 단서입니다.",
         forcedEvidence: "없음",
         hasAccel: true,
         hasSpecialSpeed: false,
@@ -152,28 +154,52 @@ const GHOST_DATA = [
         hasTargetRoam: false,
         isCustomDetailed: true,
         detailedHtml: `
-            <div class="dict-section-title">1. 물건 투척 및 사냥 메커니즘 (Polter Throw)</div>
+            <div class="dict-section-title">1. 기본 사냥 및 이동 메커니즘</div>
             <p class="dict-text">
-                • <strong>기본 사냥 조건:</strong> 평균 정신력이 <strong>50% 이하</strong>일 때 사냥을 시작합니다.<br>
-                • <strong>다중 물건 폭발 투척 (Polter Bomb):</strong> 고스트 룸 주위에 물건이 뭉쳐 있을 때, <strong>여러 개의 물건을 동시에 큰 소리를 내며 사방으로 강하게 던지는 특수 능력</strong>을 씁니다.<br>
-                • <strong>정신력 폭발 차감:</strong> 특수 능력으로 물건을 던질 때, <strong>던져진 물건 1개당 근처 플레이어의 정신력이 2%씩 무더기로 차감</strong>됩니다.<br>
-                • <strong>사냥 시 빈번한 물건 투척:</strong> 사냥 중에도 0.5초마다 100% 확률로 주변 물건을 던지며 지나갑니다.
+                • <strong>기본 사냥 정신력:</strong> 평균 정신력 50% 기준입니다. 커스텀 설정에 따라 달라질 수 있습니다.<br>
+                • <strong>기본 이동 속도:</strong> 1.7 m/s이며 표준 LOS 가속이 적용됩니다. 최대 속도는 일반적인 LOS 규칙의 영향을 받으며 폴터가이스트 전용 속도 능력은 없습니다.
             </p>
-            <div class="dict-section-title">2. 증거 (Evidence)</div>
+            <div class="dict-section-title">2. 고유 능력 — 폴터가이스트 익스플로전</div>
             <p class="dict-text">
-                • 주파수 측정기 (Spirit Box)<br>
-                • UV 라이트 (Ultraviolet)<br>
-                • 고스트 라이팅 (Ghost Writing)
+                • <strong>효과:</strong> 능력 범위 내 여러 투척 가능 물건을 한꺼번에 던집니다. 물건이 모여 있으면 눈에 띄는 다중 투척이 나타날 수 있습니다.<br>
+                • <strong>정신력:</strong> 공개 메커니즘 자료 기준으로 던져진 물건 1개당 2% 감소합니다. 플레이어 위치 및 관측 조건을 고려하며, 물건 수 × 2%는 이론 계산값입니다.<br>
+                • <strong>EMF:</strong> 능력 위치의 유령 머리 높이에서 EMF 2, 개별 투척 물건에서 EMF 3이 발생할 수 있습니다. EMF 3 자체가 EMF 5 증거를 뜻하지는 않습니다.<br>
+                • <strong>조명:</strong> 방 조명이 켜져 있어도 능력을 사용할 수 있습니다.<br>
+                • <strong>투척 형태:</strong> 바로 던지기, 공중에 띄운 뒤 던지기, 띄운 뒤 떨어뜨리기, 플레이어 방향으로 던지기 등의 형태가 공개 자료에 기록돼 있습니다. 각 형태의 선택 확률은 최신 버전에서 독립 검증되지 않았습니다.
             </p>
-            <div class="dict-section-title">3. 강점 및 약점 (Strengths & Weaknesses)</div>
+            <div class="dict-section-title">3. 일반 물건 상호작용</div>
             <p class="dict-text">
-                • <strong>강점 (Strength):</strong> 물건이 쌓인 곳에서 폭발 능력을 쓰면 정신력이 순식간에 바닥납니다.<br>
-                • <strong>약점 (Weakness):</strong> 물건이 없는 텅 빈 방에서는 능력을 쓰지 못해 무력해집니다.
+                • <strong>투척 확률:</strong> 공개 자료 기준 일반 상호작용에서 20% 확률로 투척 상태를 선택합니다. 매번 반드시 던지는 것은 아닙니다.<br>
+                • <strong>투척 강도:</strong> 공개 자료의 수평 강도는 폴터가이스트 2–6, 일반 유령 1–3입니다. 이는 실제 거리(m)가 아닌 게임 내 강도 값이며, 수직 강도는 출처 간 차이가 있어 확정값으로 사용하지 않습니다.<br>
+                • <strong>비투척 상호작용:</strong> 0.18.0 이후 공개 자료는 폴터가이스트의 물건 상호작용이 투척 중심으로 바뀌었다고 기록합니다. 문·조명 스위치 등 환경 상호작용과 소품 투척은 구분하세요. 개별 예외는 최신 버전에서 재검증이 필요합니다.<br>
+                • <strong>고스트 라이팅 책:</strong> 고유 능력으로 책을 던질 수 없는 것으로 공개 자료에 기록돼 있습니다.
             </p>
-            <div class="dict-section-title">4. 공략 및 식별법 (Strategies)</div>
+            <div class="dict-section-title">4. 사냥 중 투척</div>
             <p class="dict-text">
-                • <strong>물건 모으기 테스트 (폴터 탑):</strong> 컵, 접시, 촛대 등을 한곳에 수십 개 모아두었을 때 사방으로 한 번에 '쾅!' 하고 튀어 나간다면 폴터가이스트입니다.<br>
-                • <strong>사냥 중 발소리와 투척음:</strong> 사냥 중 걸어올 때 끊임없이 물건이 요란하게 던져진다면 폴터가이스트를 확정할 수 있습니다.
+                • <strong>주기:</strong> 사냥 중 주변에 투척 가능한 물건이 있으면 0.5초마다 투척을 시도하며, 공개 자료는 이를 100% 확률로 설명합니다. 일반 유령은 같은 조건에서 50%로 설명됩니다.<br>
+                • <strong>조건:</strong> 물건이 상호작용 범위 안에 있어야 관찰할 수 있습니다. 물건이 없거나 범위 밖이면 투척이 보이지 않을 수 있으므로, 투척이 없다는 이유만으로 배제하지 마세요.
+            </p>
+            <div class="dict-section-title">5. 증거</div>
+            <p class="dict-text">주파수 측정기 (Spirit Box) · 자외선 (Ultraviolet) · 고스트 라이팅 (Ghost Writing)</p>
+            <div class="dict-section-title">6. 강점 및 약점</div>
+            <p class="dict-text">
+                • <strong>강점:</strong> 다중 투척으로 조사팀의 정신력을 빠르게 감소시킬 수 있고, 사냥 중 투척음이 연속적으로 발생할 수 있습니다.<br>
+                • <strong>약점:</strong> 투척 가능한 물건이 적거나 능력 범위에 없으면 고유 행동을 관찰하기 어렵습니다. 그렇다고 사냥을 못 하거나 속도가 느려지는 것은 아닙니다.
+            </p>
+            <div class="dict-section-title">7. 판별 테스트</div>
+            <p class="dict-text">
+                • <strong>TEST A — 다중 투척:</strong> 작은 물건 더미를 여러 위치에 분산해 두고 여러 물건이 한 번에 날아가는지 관찰합니다.<br>
+                • <strong>TEST B — EMF:</strong> 능력 위치의 EMF 2와 개별 물건의 EMF 3을 구분합니다. EMF 5 증거로 오인하지 마세요.<br>
+                • <strong>TEST C — 사냥:</strong> 안전한 은신처를 확보한 뒤 사냥 중 투척 가능한 물건 근처에서 반복 투척을 관찰합니다. 0.5초 간격의 투척은 강한 단서지만, 한 번의 관찰만으로 확정하지 마세요.<br>
+                • <strong>TEST D — 증거 교차 확인:</strong> 주파수 측정기, 자외선, 고스트 라이팅 증거와 함께 판단합니다.
+            </p>
+            <div class="dict-section-title">8. 자주 하는 오해와 검증 상태</div>
+            <p class="dict-text">
+                • 물건을 많이 던진다는 사실만으로 폴터가이스트를 확정할 수 없습니다.<br>
+                • LOS 가속은 일반적인 규칙이며 고유 능력이 아닙니다.<br>
+                • 투척 강도는 실제 거리(m)와 동일하지 않습니다.<br>
+                • 수직 투척 강도와 일부 투척 형태의 확률은 공개 출처 간 차이가 있어 최신 버전에서 직접 검증되지 않은 값으로 취급합니다.<br>
+                • 공개 변경 이력에는 0.7.0의 오니 투척 능력 이동, 0.9.4.0의 고스트 라이팅 책 투척 제한, 0.18.0의 투척 중심 상호작용 변경이 기록돼 있습니다. 최신 공식 패치에서 개별 수치가 바뀌었는지는 별도 확인이 필요합니다.
             </p>
         `
     },
@@ -1720,7 +1746,7 @@ const GHOST_DATA = [
         "Spirit": { title: "스피릿 — 기준점이 되는 유령", trait: "고유한 속도·사냥 정신력 변화는 없으며, 향초의 사냥 방지 시간이 일반 유령보다 2배 깁니다.", tip: "스피릿은 특수 능력이 거의 없는 기준점입니다. 다른 유령의 행동을 모두 배제한 뒤 향초 타이머로 최종 확인하는 방식이 가장 안전합니다.", html: "<div class=\"dict-section-title\">1. 사냥 메커니즘</div><p class=\"dict-text\">• <strong>사냥 기준:</strong> 평균 정신력 <strong>50%</strong> 이하에서 일반적인 사냥 규칙을 따릅니다.<br>• <strong>속도:</strong> 기본 <strong>1.7 m/s</strong>, 표준 시야 가속이 적용됩니다.<br>• <strong>향초:</strong> 향초가 유령에게 정상 적용되면 <strong>180초</strong> 동안 스스로 사냥할 수 없습니다. 일반 유령은 90초입니다.<br>• 향초 효과는 진행 중인 일반 사냥의 재시작 방지에도 적용되지만 <strong>저주받은 사냥을 막지는 못합니다.</strong></p><div class=\"dict-section-title\">2. 증거</div><p class=\"dict-text\">EMF 5 · 주파수 측정기 · 고스트 라이팅</p><div class=\"dict-section-title\">3. 확정에 가까운 테스트</div><p class=\"dict-text\">정신력이 충분히 낮은 상태에서 유령에게 향초를 적용하고 타이머를 시작하세요. <strong>90초가 지나도 사냥하지 않고 180초 방어가 유지되는지</strong>를 반복 확인하면 스피릿을 강하게 의심할 수 있습니다. 단 한 번의 타이머만으로 확정하지 말고, 향초가 실제로 유령에게 적용됐는지 확인해야 합니다.</p><div class=\"dict-section-title\">4. 실전 공략</div><p class=\"dict-text\">특수 속도나 조기 사냥에 의존하지 않는 대신, 향초를 적극적으로 사용해 시간을 벌 수 있습니다. 다른 유령의 고유 행동을 먼저 소거한 뒤 스피릿 테스트를 마지막에 하는 것이 효율적입니다.</p>" },
         "Wraith": { title: "레이스 — 소금과 순간이동을 이용한 판별", trait: "소금 더미를 절대 건드리지 않으며, 비사냥 상태에서 무작위 플레이어 위치로 순간이동해 그 위치에 EMF 2 또는 5를 남길 수 있습니다.", tip: "소금 테스트가 가장 강력합니다. 레이스는 벽을 통과하지 않으므로 모델이나 이동만으로 레이스를 판단하지 마세요.", html: "<div class=\"dict-section-title\">1. 고유 능력</div><p class=\"dict-text\">• <strong>소금:</strong> 사냥 중을 포함해 소금 더미를 전혀 교란하지 않습니다. 따라서 소금 발자국도 만들지 않습니다.<br>• <strong>순간이동:</strong> 사냥·고스트 이벤트가 아닌 상태에서 무작위 플레이어에게 순간이동할 수 있습니다. 순간이동이 끝난 <strong>플레이어 위치</strong>에 EMF 2가 발생하며, 약 33% 확률로 EMF 5가 됩니다.<br>• <strong>중요한 오해:</strong> 레이스가 실제로 벽이나 바닥을 통과하는 것은 아닙니다.</p><div class=\"dict-section-title\">2. 증거</div><p class=\"dict-text\">EMF 5 · 주파수 측정기 · 도트 프로젝터</p><div class=\"dict-section-title\">3. TEST 01 — 소금</div><p class=\"dict-text\">유령의 이동 경로에 소금을 직접 놓고 유령이 그 위를 통과하도록 유도합니다. <strong>정면으로 지나가는데도 소금이 반복해서 그대로라면 레이스</strong>를 강하게 의심할 수 있습니다. 단, 분노 상태의 갈루도 소금을 건드리지 않으므로 갈루 가능성을 함께 확인하세요.</p><div class=\"dict-section-title\">4. TEST 02 — 순간이동 EMF</div><p class=\"dict-text\">유령방에서 멀리 떨어진 플레이어 주변에 갑자기 EMF가 생기고 실제 상호작용이 없다면 레이스의 순간이동을 의심하세요. EMF 위치가 <strong>플레이어의 위치</strong>라는 점이 핵심입니다.</p>" },
         "Phantom": { title: "팬텀 — 사진과 깜빡임으로 잡아내는 유령", trait: "유령 이벤트·사냥 중 10m 이내에서 모습을 바라볼 때 추가 정신력 감소가 발생하며, 사진을 정상적으로 찍으면 일시적으로 사라집니다.", tip: "사진 테스트와 사냥 깜빡임을 함께 보세요. 팬텀의 사냥 깜빡임은 보이지 않는 시간이 유독 길습니다.", html: "<div class=\"dict-section-title\">1. 정신력 및 시각 메커니즘</div><p class=\"dict-text\">• 유령 이벤트 또는 사냥 중 팬텀과 <strong>10m 이내</strong>에서 하트비트가 발생하는 직시 상태라면 추가 정신력이 약 <strong>0.5%/초</strong> 감소합니다.<br>• <strong>사진/영상 촬영:</strong> 정상적으로 촬영에 성공하면 팬텀이 실제 화면에서 사라지며, 결과물에도 유령의 형체와 간섭 패턴이 남지 않습니다.<br>• <strong>사냥 깜빡임:</strong> 가시 시간은 일반 유령과 비슷하지만 비가시 시간이 길어 한 번의 깜빡임 주기가 약 1~2초까지 늘어납니다.</p><div class=\"dict-section-title\">2. 증거</div><p class=\"dict-text\">주파수 측정기 · UV 라이트 · 도트 프로젝터</p><div class=\"dict-section-title\">3. TEST 01 — 사진</div><p class=\"dict-text\">도트나 이벤트로 안전하게 나타나게 한 뒤 사진을 찍습니다. <strong>사진 촬영 성공과 동시에 팬텀이 사라지고 결과물에 유령이 보이지 않는다면</strong> 강력한 판별 포인트입니다. 다른 유령도 이벤트 종료 시점의 동기화 문제로 비슷하게 보일 수 있으므로 한 번만으로 확정하지 마세요.</p><div class=\"dict-section-title\">4. TEST 02 — 사냥 깜빡임</div><p class=\"dict-text\">안전한 루프에서 사냥을 관찰하세요. 유령이 1초 이상 자주 사라지는 긴 깜빡임이 반복되면 팬텀 가능성이 크게 올라갑니다.</p>" },
-        "Poltergeist": { title: "폴터가이스트 — 물건을 무기로 사용하는 유령", trait: "여러 물건을 동시에 던지는 능력을 가지며, 사냥 중 주변 물건이 있다면 0.5초마다 투척을 시도합니다.", tip: "물건을 한곳에 몰아놓는 것보다 여러 작은 더미를 여러 위치에 만드는 편이 테스트에 유리합니다.", html: "<div class=\"dict-section-title\">1. 투척 메커니즘</div><p class=\"dict-text\">• 상호작용 상태에 들어갈 때 <strong>20%</strong> 확률로 투척 상태를 선택할 수 있습니다.<br>• 특수 능력은 상호작용 범위 안의 물건을 <strong>한꺼번에 투척</strong>하며, 유령 머리 위치에 EMF 2, 던져진 각 물건에는 EMF 3이 발생합니다.<br>• 같은 방의 플레이어는 던져진 물건 <strong>1개당 정신력 2%</strong>를 잃습니다.<br>• 사냥 중에는 주변에 던질 물건이 있다면 <strong>0.5초마다 100% 확률로 투척을 시도</strong>합니다.<br>• 일반 유령보다 훨씬 강한 투척력을 가질 수 있습니다.</p><div class=\"dict-section-title\">2. 증거</div><p class=\"dict-text\">주파수 측정기 · UV 라이트 · 고스트 라이팅</p><div class=\"dict-section-title\">3. TEST — 폴터 더미</div><p class=\"dict-text\">유령이 있는 것으로 추정되는 방에 여러 작은 물건 더미를 <strong>여러 위치</strong>에 만들어 주세요. 한 번에 여러 물건이 폭발하듯 날아가거나 사냥 중 0.5초 간격의 연속 투척이 보이면 강력한 증거입니다.<br>※ 물건이 전혀 없어도 특수 능력 자체가 불가능한 것은 아니므로, <strong>빈 방에서 능력이 안 나왔다고 폴터를 배제하지 마세요.</strong></p><div class=\"dict-section-title\">4. 실전 공략</div><p class=\"dict-text\">사냥 전 물건을 치워버리는 것보다 작은 더미를 분산해 두는 것이 테스트에 좋습니다. 반대로 사냥이 시작되면 물건이 많은 방은 투척음 때문에 위치를 추적하기 쉬워질 수 있습니다.</p>" },
+        "Poltergeist": { title: "폴터가이스트 — 다중 물건 투척형 유령", trait: "고유 능력으로 여러 물건을 동시에 던집니다. 사냥 중에는 범위 내 투척 가능한 물건을 0.5초마다 던지는 행동이 핵심 식별 단서입니다.", tip: "물건 더미를 한곳에만 쌓지 말고 여러 위치에 분산하세요. 다중 투척, EMF 반응, 증거를 함께 확인하세요.", html: "<div class=\\"dict-section-title\\">1. 고유 능력 — 폴터가이스트 익스플로전</div><p class=\\"dict-text\\">• 능력 범위 내 여러 투척 가능 물건을 한꺼번에 던집니다.<br>• 공개 자료 기준 던져진 물건당 정신력 2% 감소가 적용됩니다. 물건 수 × 2%는 이론값이며 플레이어 위치와 관측 조건을 고려해야 합니다.<br>• 능력 위치의 유령 머리 높이에서 EMF 2, 개별 투척 물건에서 EMF 3이 발생할 수 있습니다. EMF 3과 EMF 5 증거를 혼동하지 마세요.<br>• 방 조명이 켜져 있어도 능력을 사용할 수 있습니다.</p><div class=\\"dict-section-title\\">2. 일반 투척 및 사냥</div><p class=\\"dict-text\\">• 일반 물건 상호작용에서 투척 상태를 선택할 확률은 공개 자료 기준 20%입니다.<br>• 사냥 중 투척 가능한 물건이 범위 안에 있으면 0.5초마다 투척을 시도하는 것으로 알려져 있습니다. 물건이 없거나 범위 밖이면 관찰되지 않을 수 있습니다.<br>• 공개 자료의 수평 투척 강도는 폴터가이스트 2–6, 일반 유령 1–3입니다. 이는 실제 거리(m)가 아니며 수직 강도는 출처 간 차이가 있습니다.</p><div class=\\"dict-section-title\\">3. 증거</div><p class=\\"dict-text\\">주파수 측정기 · 자외선 · 고스트 라이팅</p><div class=\\"dict-section-title\\">4. TEST — 다중 투척</div><p class=\\"dict-text\\">작은 물건 더미를 여러 위치에 분산하세요. 여러 물건이 한 번에 날아가는 현상, 사냥 중 반복 투척, EMF 2/3 반응을 함께 확인합니다. 단일 투척만으로 확정하지 마세요.</p><div class=\\"dict-section-title\\">5. 주의 및 자료 검증</div><p class=\\"dict-text\\">LOS 가속은 일반 규칙입니다. 투척 강도는 실제 거리와 같지 않으며 수직 강도·일부 세부 확률은 공개 자료 간 차이가 있어 최신 버전 실측 전까지 확정값으로 취급하지 않습니다. 물건이 없을 때 능력이 보이지 않는다고 폴터가이스트를 배제하지 마세요.</p>" },
         "Banshee": { title: "밴시 — 한 명을 끝까지 노리는 타겟형 유령", trait: "게임 시작 시 타겟을 정하고 그 타겟의 정신력으로 사냥을 판정합니다. 여성 전용이며 특유의 비명을 마이크로폰에서 들을 수 있습니다.", tip: "타겟 확인 + 여성 모델 + 마이크로폰 비명 세 가지를 조합하면 매우 강력합니다.", html: "<div class=\"dict-section-title\">1. 타겟 시스템</div><p class=\"dict-text\">• 계약 시작 시 무작위 플레이어 한 명을 타겟으로 선택합니다. 타겟이 죽거나 게임을 나가면 다음 대상이 정해집니다.<br>• 사냥 판정은 평균 정신력이 아니라 <strong>타겟의 정신력 50%</strong>를 기준으로 합니다. 그래서 평균 정신력이 50%보다 훨씬 높은 상태에서도 사냥이 가능할 수 있습니다.<br>• 타겟이 조사 구역 밖에 있으면 사냥 시 다른 플레이어를 기회적으로 추적할 수 있습니다.</p><div class=\"dict-section-title\">2. 고유 행동</div><p class=\"dict-text\">• 노래 이벤트 선택 확률이 일반 유령의 20%보다 높은 <strong>46.67%</strong>입니다.<br>• 타겟이 조사 구역 안에 있을 때 D.O.T.S 상태에서 타겟에게 이동할 확률은 <strong>2/3</strong>입니다.<br>• 짧은 로밍에서도 타겟에게 이동하는 능력을 사용할 수 있습니다. 이 이동에는 레이스처럼 EMF가 생성되지 않습니다.<br>• 마이크로폰/사운드 레코더에서 <strong>33%</strong> 확률로 20종의 고유 비명 중 하나를 냅니다.<br>• 여성 이름·모델만 사용합니다.</p><div class=\"dict-section-title\">3. TEST — 타겟 분리</div><p class=\"dict-text\">한 명을 낮은 정신력으로 유지하고 다른 플레이어는 높은 정신력으로 유지한 뒤 사냥이 누구를 기준으로 시작되는지 관찰하세요. 사냥 중 타겟이 아닌 플레이어를 접촉해도 죽이지 않고 통과한다는 점도 강력한 확인법입니다.</p><div class=\"dict-section-title\">4. 실전 공략</div><p class=\"dict-text\">타겟이 아닌 플레이어는 사냥 중 상대적으로 자유롭게 조사할 수 있지만, 타겟이 조사 구역 안에 있을 때만 이 장점이 명확합니다. 타겟이 정신력을 높게 유지하면 사냥을 크게 늦출 수 있습니다.</p>" },
         "Dayan": { title: "다얀 — 움직임 하나로 사냥 속도와 임계값이 바뀌는 유령", trait: "10m 안에서 가장 가까운 플레이어의 움직임에 따라 사냥 임계값과 속도가 동시에 바뀝니다. 여성 전용입니다.", tip: "10m라는 거리와 가장 가까운 플레이어라는 조건이 핵심입니다. 플레이어가 감지되지 않아도 움직임 자체가 영향을 줍니다.", html: "<div class=\"dict-section-title\">1. 10m 근접 메커니즘</div><p class=\"dict-text\">• 다얀에서 <strong>10m 이내</strong>에 플레이어가 있으면 같은 층인지와 관계없이 가장 가까운 플레이어의 상태를 확인합니다.<br>• 가장 가까운 플레이어가 <strong>정지</strong>하면: 사냥 임계값 <strong>45%</strong> / 기본 속도 <strong>1.2 m/s</strong>.<br>• 가장 가까운 플레이어가 <strong>걷거나 움직이면</strong>: 사냥 임계값 <strong>65%</strong> / 기본 속도 <strong>2.25 m/s</strong>.<br>• 10m 안에 플레이어가 없으면 일반적인 <strong>50% / 1.7 m/s</strong> 규칙으로 돌아갑니다.</p><div class=\"dict-section-title\">2. LOS의 숨은 누적</div><p class=\"dict-text\">10m 안에서는 위의 고정 속도가 우선하지만, 다얀이 플레이어를 시야에 두며 쌓은 일반 LOS 가속은 <strong>백그라운드에서 누적</strong>될 수 있습니다. 10m 밖으로 나간 뒤에는 그 누적 가속이 적용될 수 있으므로 “다얀은 LOS 가속이 없다”라고 이해하면 안 됩니다.</p><div class=\"dict-section-title\">3. TEST 01 — 정지 / 이동</div><p class=\"dict-text\">사냥 중 다얀과 10m 안에 있는 플레이어가 완전히 멈추면 1.2 m/s 수준으로 급격히 느려지고, 가까운 플레이어가 움직이면 2.25 m/s로 돌아가는지 확인합니다. <strong>가장 가까운 플레이어</strong>가 바뀌면 속도도 바뀔 수 있습니다.</p><div class=\"dict-section-title\">4. 실전 공략</div><p class=\"dict-text\">사냥 중에는 10m 안에서 가장 가까운 플레이어가 멈춰 유령의 속도를 낮추는 것이 강력합니다. 반대로 다얀에게 가까운 상태에서 무작정 달리면 2.25 m/s가 즉시 적용되어 매우 위험합니다. 향초와 소금으로 10m 밖으로 빠져나갈 시간을 만드는 것이 좋습니다.<br>※ 다얀은 <strong>여성 이름·여성 모델</strong>만 사용하므로 성별도 즉시 배제 테스트로 활용할 수 있습니다.</p>" },
         "Deildegast": { title: "데일드가스트 — 물건을 움직일수록 느려지는 초고속 유령", trait: "각 사냥 사이 플레이어가 상호작용한 고유 비장비 오브젝트 수에 따라 다음 사냥 속도가 0.1 m/s씩 감소합니다. 시야 가속은 없습니다.", tip: "처음에는 3.0 m/s이므로 숨는 것이 우선입니다. 확인 후에는 서로 다른 물건을 최대한 많이 움직여 다음 사냥을 약화시키세요.", html: "<div class=\"dict-section-title\">1. 사냥 속도</div><p class=\"dict-text\">• 사냥 시작 기본 속도는 <strong>3.0 m/s</strong>입니다.<br>• 시야를 확보해도 표준 LOS 가속을 받지 않습니다. 사냥 시작 시 결정된 속도가 해당 사냥 동안 유지됩니다.<br>• 사냥이 끝나거나 사냥 시도가 끝나면 카운터가 다시 계산됩니다.</p><div class=\"dict-section-title\">2. 오브젝트 카운터</div><p class=\"dict-text\">• 플레이어가 사냥과 사냥 사이에 상호작용한 <strong>고유 비장비 오브젝트</strong>마다 다음 사냥 속도가 <strong>0.1 m/s</strong>씩 감소합니다.<br>• 동일한 물건을 반복해서 움직여도 중복 누적되지 않습니다.<br>• 장비와 저주받은 물건은 카운트하지 않는 것으로 정리하는 것이 안전합니다. 사이트의 테스트에서는 <strong>서로 다른 환경 오브젝트</strong>를 우선하세요.<br>• 최저 속도는 <strong>0.4 m/s</strong>입니다.</p><div class=\"dict-section-title\">3. TEST — 3.0 → 감속</div><p class=\"dict-text\">첫 사냥 전에는 물건을 거의 건드리지 않고 속도를 확인합니다. 다음 사냥 사이에 서로 다른 오브젝트를 10개 이상 움직인 뒤 속도가 눈에 띄게 내려가면 데일드가스트를 강하게 의심할 수 있습니다. <strong>약 13개면 일반 유령 수준 1.7 m/s, 약 26개면 0.4 m/s</strong>까지 내려가는 것이 핵심 체감 포인트입니다.</p><div class=\"dict-section-title\">4. 실전 공략</div><p class=\"dict-text\">초반 3.0 m/s 상태에서 달리기로 해결하려 하지 마세요. 확인이 끝나면 생존한 플레이어가 방마다 서로 다른 오브젝트를 빠르게 움직여 다음 사냥을 약화시키는 것이 핵심입니다. 사망한 플레이어의 상호작용도 카운터에 기여할 수 있어 팀 플레이 가치가 높습니다.</p>" },
