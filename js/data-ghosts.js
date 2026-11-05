@@ -1306,15 +1306,15 @@ const GHOST_DATA = [
         name: "타예",
         engName: "Thaye",
         evidences: ["고스트 오브", "고스트 라이팅", "도트"],
-        sanity: "초기 75% ➔ 나이듦에 따라 최소 15%",
-        speed: "초기 2.75 m/s ➔ 나이듦에 따라 최소 1.0 m/s (시야 가속 없음)",
+        sanity: "초기 75% ➔ 노화 후 15%",
+        speed: "초기 2.75 m/s ➔ 노화 후 1.0 m/s (LOS 가속 없음)",
         ytUrl: "https://www.youtube.com/results?search_query=파스모포비아+타예+공략",
         tip: `<strong>1. 나이듦(Aging) 및 스펙 노화 메커니즘</strong><br>
               • <strong>나이듦 조건:</strong> 같은 방에 플레이어가 머무르면 1~2분마다 나이를 먹어 <strong>총 10단계까지 노화</strong>합니다.<br>
               • <strong>젊은 상태 (0세):</strong> 사냥 정신력 <strong>75%</strong>, 이동 속도 <strong>2.75 m/s (극도로 위험)</strong><br>
               • <strong>늙은 상태 (10세):</strong> 사냥 정신력 <strong>15%</strong>, 이동 속도 <strong>1.0 m/s (극도로 느려짐)</strong>. (시야 가속 없음)`,
-        huntSanity: "초기 75% -> 15%",
-        specialTrait: "나이듦(Aging) 메커니즘 (총 10단계), 나이가 들수록 사냥 정신력/속도/상호작용 감소, 시야 가속 없음.",
+        huntSanity: "75% → 15%",
+        specialTrait: "나이가 들수록 사냥 정신력·속도·활동성이 감소하며 LOS 가속이 없습니다.",
         forcedEvidence: "없음",
         hasAccel: false,
         hasSpecialSpeed: true,
@@ -1322,31 +1322,7 @@ const GHOST_DATA = [
         hasTargetRoam: false,
         isCustomDetailed: true,
         detailedHtml: `
-            <div class="dict-section-title">1. 나이듦(Aging) 및 스펙 노화 메커니즘</div>
-            <p class="dict-text">
-                • <strong>나이듦 조건:</strong> 타예가 있는 방에 플레이어가 머무르면 1~2분마다 나이를 한 살씩 먹어 <strong>총 10단계까지 노화</strong>합니다.<br>
-                • <strong>초기 젊은 상태 (0세):</strong> 사냥 시작 정신력 <strong>75%</strong>, 이동 속도 <strong>2.75 m/s (극도로 빨라 위험함)</strong><br>
-                • <strong>최종 늙은 상태 (10세):</strong> 사냥 시작 정신력 <strong>15%</strong>, 이동 속도 <strong>1.0 m/s (극도로 느려짐)</strong><br>
-                • <strong>시야 가속 없음:</strong> 플레이어를 아무리 오래 바라보아도 추가 시야 가속이 오르지 않습니다.<br>
-                • <strong>위자드 보드 나이 변화:</strong> 위자드 보드로 나이를 물어보면 시간이 지나면서 답변하는 나이가 실제로 많아집니다.
-            </p>
-            <div class="dict-section-title">2. 증거 (Evidence)</div>
-            <p class="dict-text">
-                • 고스트 오브 (Ghost Orb)<br>
-                • 고스트 라이팅 (Ghost Writing)<br>
-                • D.O.T.S. 프로젝터 (D.O.T.S. Projector)
-            </p>
-            <div class="dict-section-title">3. 강점 및 약점 (Strengths & Weaknesses)</div>
-            <p class="dict-text">
-                • <strong>강점 (Strength):</strong> 극초반 양초/정신력이 높은 상태에서 2.75m/s 초고속 사냥으로 팀을 전멸시킵니다.<br>
-                • <strong>약점 (Weakness):</strong> 방에서 시간을 보내 나이를 먹이고 나면 1.0m/s 달팽이가 되어 완벽하게 무력화됩니다.
-            </p>
-            <div class="dict-section-title">4. 공략 및 식별법 (Strategies)</div>
-            <p class="dict-text">
-                • <strong>사냥 속도 저하 관찰:</strong> 첫 사냥 때는 2.75m/s로 엄청 빨랐던 발소리가, 고스트 룸 조사를 마친 뒤 후반 사냥 때는 1.0m/s로 현저히 느려졌다면 타예입니다.
-            </p>
-        
-            <div class="dict-section-title">5. 나이 단계·속도 변화</div><p class="dict-text">• 타예는 처음에 매우 빠르고 공격적이며, 플레이어가 근처에 머무르면 나이가 들어 활동성과 사냥 기준 및 속도가 감소합니다. 어린 상태는 최대 약 2.75 m/s, 완전히 늙은 상태는 약 1.0 m/s까지 낮아질 수 있습니다.<br>• 나이 변화는 단순히 경과 시간만으로 해석하면 안 됩니다. 유령 근처에 머문 시간과 단계가 바뀐 시점을 기록해야 합니다.<br>• 타예는 표준 LOS 가속을 적용받지 않습니다. 시간이 지나며 느려지는 현상을 시야 가속과 혼동하지 마세요.</p><div class="dict-section-title">6. 나이 확인 테스트</div><p class="dict-text">• 계약 초반과 일정 시간 유령 근처에 머문 뒤의 활동성, 사냥 기준, 발소리 속도를 비교합니다. 같은 설정과 비슷한 거리에서 측정해야 유효합니다.<br>• 타예는 나이가 들수록 사냥 기준이 단계적으로 낮아집니다. 정확한 단계 수치와 간격은 현재 게임 버전 및 관측 조건과 대조하고, 임의로 일정 시간마다 반드시 바뀐다고 단정하지 마세요.</p>
+            <div class="dict-section-title">1. 노화 메커니즘</div><p class="dict-text">• 계약 시작 약 1분 후 첫 노화 시도를 합니다. 타예와 플레이어가 같은 방 또는 약 3m 이내에 있으면 나이가 1 증가하고, 다음 시도는 1~2분 뒤입니다. 조건을 충족하지 못하면 약 30초 뒤 재시도합니다. 사냥 중 노화는 사냥 종료 후 적용됩니다.<br>• 나이가 1 증가할 때마다 사냥 정신력 기준은 6%p, 속도는 0.175m/s, 활동성은 15%p 감소합니다. 최대 나이는 10입니다.</p><div class="dict-section-title">2. 나이별 사냥 수치</div><p class="dict-text">나이 0: 75% · 2.75m/s · 활동성 200%<br>나이 1: 69% · 2.575m/s · 활동성 185%<br>나이 2: 63% · 2.4m/s · 활동성 170%<br>나이 3: 57% · 2.225m/s · 활동성 155%<br>나이 4: 51% · 2.05m/s · 활동성 140%<br>나이 5: 45% · 1.875m/s · 활동성 125%<br>나이 6: 39% · 1.7m/s · 활동성 110%<br>나이 7: 33% · 1.525m/s · 활동성 95%<br>나이 8: 27% · 1.35m/s · 활동성 80%<br>나이 9: 21% · 1.175m/s · 활동성 65%<br>나이 10+: 15% · 1.0m/s · 활동성 50%</p><div class="dict-section-title">3. 사냥·활동 특성</div><p class="dict-text">• 현재 나이의 사냥 정신력 기준 아래에서, 유령이 유휴 상태를 벗어날 때 1/8 확률로 사냥을 시도합니다. 정신력이 더 낮아져도 이 확률은 증가하지 않습니다.<br>• 시야(LOS) 가속은 없습니다. 나이 4부터 달리기 플레이어보다 느리고, 나이 7부터 걷는 플레이어보다 느립니다.<br>• 이벤트 성공 확률은 나이에 따라 감소하며, 나이 9 이후에는 저주받은 소지품으로 강제된 경우를 제외하면 유령 이벤트가 발생하지 않습니다. 문 상호작용 확률은 30%입니다.</p><div class="dict-section-title">4. 판별 테스트·오해</div><p class="dict-text">• 계약 초반의 높은 속도·활동성과 시간이 지난 뒤의 감소를 비교하세요. 타예가 있는 방 또는 가까운 거리에서 플레이어가 머문 시간을 기록해야 합니다.<br>• 위자드 보드로 나이를 물으면 나이 변화가 반영됩니다. 단, 위자드 보드 사용 자체의 위험과 정신력 감소를 고려하세요.<br>• 속도가 느려졌다는 사실만으로 타예를 확정하지 말고, 증거와 노화 조건을 함께 확인하세요.</p>
         `
     },
     {
