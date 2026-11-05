@@ -1305,14 +1305,14 @@ const GHOST_DATA = [
     {
         name: "타예",
         engName: "Thaye",
-        evidences: ["고스트 오브", "고스트 라이팅", "도트 프로젝터"],
-        sanity: "나이 0: 75% → 나이 10+: 15% (표시값; 실제 적용 보고는 1%p 낮음)",
-        speed: "나이 0: 2.75 m/s → 나이 10+: 1.0 m/s (LOS 가속 없음)",
+        evidences: ["도트 프로젝터", "고스트 오브", "고스트 라이팅"],
+        sanity: "나이 0: 75% → 나이 10+: 15% (표기값; 위키 주석상 실제 기준은 1%p 낮음)",
+        speed: "나이 0: 2.75 m/s → 나이 10+: 1.0 m/s (시야 가속 없음)",
         ytUrl: "https://www.youtube.com/results?search_query=파스모포비아+타예+공략",
         tip: `<strong>타예 전체 가이드</strong><br>
-              타예는 나이가 들수록 사냥 정신력 기준·이동 속도·활동성이 낮아집니다. 계약 초반에는 빠르고 높은 정신력에서 사냥할 수 있으므로 숨을 장소를 먼저 확보하세요. 플레이어가 가까이 머물러 노화를 유도하고, 초기와 후반의 차이를 비교하세요. 시야(LOS)에 따른 가속은 없습니다.`,
-        huntSanity: "나이 0: 75% → 나이 10+: 15% (표시값; 실제 적용 보고는 1%p 낮음)",
-        specialTrait: "나이에 따라 사냥 정신력 기준·속도·활동성·이벤트 확률이 감소합니다. LOS 가속은 없습니다.",
+              나이가 들수록 사냥 정신력 기준·이동 속도·활동성이 낮아집니다. 초반에는 높은 정신력에서도 빠르게 사냥할 수 있으므로 숨을 장소를 먼저 확보하세요. 타예 근처에 머물러 노화를 유도하고, 초기와 후반의 차이를 비교하세요.`,
+        huntSanity: "나이 0: 75% → 나이 10+: 15% (표기값; 위키 주석상 실제 기준은 1%p 낮음)",
+        specialTrait: "나이에 따라 사냥 정신력 기준·속도·활동성이 낮아집니다. 플레이어 시야에 따른 가속은 없습니다.",
         forcedEvidence: "없음",
         hasAccel: false,
         hasSpecialSpeed: true,
@@ -1320,18 +1320,51 @@ const GHOST_DATA = [
         hasTargetRoam: false,
         isCustomDetailed: true,
         detailedHtml: `
-            <div class="dict-section-title">증거</div><p class="dict-text">• D.O.T.S. 프로젝터<br>• 고스트 오브<br>• 고스트 라이팅</p>
-            <div class="dict-section-title">강점과 약점</div><p class="dict-text">• <strong>강점:</strong> 장소에 들어오면 활동적이고, 방어적이며, 민첩해집니다.<br>• <strong>약점:</strong> 시간이 지나면 약해져 느려지고 덜 공격적으로 변합니다.</p>
-            <div class="dict-section-title">노화 능력</div><p class="dict-text">• 타예는 내부 나이(age) 값을 가지며, 나이가 활동성·사냥 정신력 기준·사냥 속도에 영향을 줍니다.<br>• 출구 문을 처음 연 뒤 1분 후 노화를 시도합니다.<br>• 타예와 같은 방에 플레이어가 있거나 타예로부터 3m 이내에 플레이어가 있으면 나이가 1 증가하고, 다음 노화 시도는 1~2분 후입니다.<br>• 조건을 충족하지 못하면 30초 후 다시 시도합니다.<br>• 사냥 중 노화에 성공하면 나이 증가는 사냥이 끝난 뒤 적용됩니다.<br>• 최대 10회 노화하며, 10 이상에서는 최저 능력치가 유지됩니다.</p>
-            <div class="dict-section-title">나이별 수치</div><div class="dayan-table-wrap"><table class="dayan-table"><thead><tr><th>나이</th><th>사냥 정신력 기준(표기값)</th><th>활동성</th><th>사냥 속도</th></tr></thead><tbody>
-            <tr><td>0</td><td>75%</td><td>200%</td><td>2.75 m/s</td></tr><tr><td>1</td><td>69%</td><td>185%</td><td>2.575 m/s</td></tr><tr><td>2</td><td>63%</td><td>170%</td><td>2.4 m/s</td></tr><tr><td>3</td><td>57%</td><td>155%</td><td>2.225 m/s</td></tr><tr><td>4</td><td>51%</td><td>140%</td><td>2.05 m/s</td></tr><tr><td>5</td><td>45%</td><td>125%</td><td>1.875 m/s</td></tr><tr><td>6</td><td>39%</td><td>110%</td><td>1.7 m/s</td></tr><tr><td>7</td><td>33%</td><td>95%</td><td>1.525 m/s</td></tr><tr><td>8</td><td>27%</td><td>80%</td><td>1.35 m/s</td></tr><tr><td>9</td><td>21%</td><td>65%</td><td>1.175 m/s</td></tr><tr><td>10 이상</td><td>15%</td><td>50%</td><td>1.0 m/s</td></tr></tbody></table></div>
-            <p class="dict-text">위키 자료는 개발상 누락으로 실제 사냥 정신력 기준이 표기값보다 1%p 낮다고 주석을 달고 있습니다.</p>
-            <div class="dict-section-title">사냥</div><p class="dict-text">• 사냥 정신력이 해당 나이의 기준 이하일 때, 타예가 대기 상태에서 벗어난 뒤 사냥을 시작할 확률은 1/8로 고정됩니다.<br>• 정신력이 더 낮아져도 이 확률은 증가하지 않습니다.<br>• 타예는 플레이어를 시야에 두어도 시야 가속을 하지 않습니다.</p>
-            <div class="dict-section-title">활동·상호작용</div><p class="dict-text">• 유령 이벤트 시도 성공 확률은 1 − 나이/9로 제시돼 있습니다. 노화 9회 후에는 저주받은 물건 등으로 강제하지 않는 한 이벤트를 하지 않습니다.<br>• 문 상호작용 확률은 30%로, 일반 유령의 25%보다 높습니다.<br>• 나이가 증가할 때마다 위자드 보드가 알려주는 인간 나이는 1~4년 증가할 수 있습니다. 시작 인간 나이는 10~90세 범위일 수 있습니다.</p>
-            <div class="dict-section-title">식별·대응</div><p class="dict-text">• 초반에는 활동과 이벤트가 잦아 유령을 찾기 쉽지만, 오래 걸리면 높은 사냥 정신력 기준과 빠른 속도 때문에 위험할 수 있습니다.<br>• 플레이어가 근처에 머물러 노화하면 사냥 속도와 활동성이 낮아집니다.<br>• 사냥 속도가 시간이 지나며 낮아지고 시야 가속이 없다면 타예를 의심할 수 있습니다.<br>• 나이 4에서는 속도가 플레이어의 평균 달리기 속도보다 낮고, 나이 7에서는 걷는 속도보다 낮다고 안내돼 있습니다.<br>• 위자드 보드로 나이를 물어보고, 타예 근처에 머문 뒤 다시 물어 나이 증가를 확인할 수 있습니다. 위자드 보드는 정신력을 소모합니다.</p>
-            <div class="dict-section-title">다른 유령과 구별</div><p class="dict-text">• 오밤보와 증거 두 개를 공유하지만, 오밤보는 시야 가속을 하며 사냥 중 속도가 바뀔 수 있습니다.<br>• 미믹이 타예를 흉내 낼 때는 무작위 나이를 선택한다고 위키에 기재돼 있습니다.</p>
-            <div class="dict-section-title">변경 이력</div><p class="dict-text">• 0.6.2.0: 타예 추가<br>• 0.6.2.1: 타예의 약점 조정<br>• 0.9.0: D.O.T.S. 프로젝터 및 고스트 라이팅 상호작용 확률 증가 제거</p>
-            <div class="dict-section-title">주의 및 출처</div><p class="dict-text">• 위키에는 타예가 바로 아래층에 있고 플레이어가 해당 방에 있을 때 노화하는 버그 주석이 있습니다. Steam 변경 자료는 과거 버전이므로 현재 수치와 혼합하지 않았습니다.<br><a href="https://phasmophobia.fandom.com/wiki/Thaye" target="_blank" rel="noopener">Phasmophobia Wiki – Thaye</a><br><a href="https://phasmopedia.com/en/ghosts/thaye/" target="_blank" rel="noopener">Phasmopedia – Thaye</a><br><a href="https://phasmo.guru/ghostspeeds/thaye" target="_blank" rel="noopener">Phasmo Guru – Thaye speeds</a><br><a href="https://store.steampowered.com/news/posts/?appids=739630&enddate=1655809399&feed=steam_community_announcements" target="_blank" rel="noopener">Kinetic Games / Steam – 과거 변경 자료</a></p>
+            <div class="dict-section-title">증거</div>
+            <p class="dict-text">• D.O.T.S. 프로젝터<br>• 고스트 오브<br>• 고스트 라이팅</p>
+
+            <div class="dict-section-title">일지에 기재된 강점·약점</div>
+            <p class="dict-text">• <strong>강점:</strong> 장소에 들어오면 활동적이고, 방어적이며, 민첩해집니다.<br>• <strong>약점:</strong> 시간이 지나면 약해져 느려지고 덜 공격적으로 변합니다.</p>
+
+            <div class="dict-section-title">노화 능력</div>
+            <p class="dict-text">• 타예는 내부 나이(age) 값을 갖고 있으며, 나이가 활동성·사냥 정신력 기준·사냥 속도에 영향을 줍니다.<br>• 출구 문을 처음 연 뒤 1분 후 노화를 시도합니다.<br>• 타예와 같은 방에 플레이어가 있거나 타예로부터 3m 이내에 플레이어가 있으면 나이가 1 증가하고, 다음 노화 시도는 1~2분 후입니다.<br>• 조건을 충족하지 못하면 30초 후 다시 시도합니다.<br>• 사냥 중 노화에 성공한 경우, 나이 증가는 사냥이 끝난 뒤 적용됩니다.<br>• 최대 10회 노화합니다.</p>
+
+            <div class="dict-section-title">나이별 수치</div>
+            <div class="dayan-table-wrap"><table class="dayan-table">
+                <thead><tr><th>나이</th><th>사냥 정신력 기준(표기값)</th><th>활동성</th><th>사냥 속도</th></tr></thead>
+                <tbody>
+                    <tr><td>0</td><td>75%</td><td>200%</td><td>2.75 m/s</td></tr>
+                    <tr><td>1</td><td>69%</td><td>185%</td><td>2.575 m/s</td></tr>
+                    <tr><td>2</td><td>63%</td><td>170%</td><td>2.4 m/s</td></tr>
+                    <tr><td>3</td><td>57%</td><td>155%</td><td>2.225 m/s</td></tr>
+                    <tr><td>4</td><td>51%</td><td>140%</td><td>2.05 m/s</td></tr>
+                    <tr><td>5</td><td>45%</td><td>125%</td><td>1.875 m/s</td></tr>
+                    <tr><td>6</td><td>39%</td><td>110%</td><td>1.7 m/s</td></tr>
+                    <tr><td>7</td><td>33%</td><td>95%</td><td>1.525 m/s</td></tr>
+                    <tr><td>8</td><td>27%</td><td>80%</td><td>1.35 m/s</td></tr>
+                    <tr><td>9</td><td>21%</td><td>65%</td><td>1.175 m/s</td></tr>
+                    <tr><td>10 이상</td><td>15%</td><td>50%</td><td>1.0 m/s</td></tr>
+                </tbody>
+            </table></div>
+            <p class="dict-text">위키 자료는 개발상 누락으로 실제 사냥 정신력 기준이 표기값보다 1%p 낮다고 주석을 달고 있습니다. 나이가 10 이상이면 표의 최저 수치가 유지됩니다.</p>
+
+            <div class="dict-section-title">사냥</div>
+            <p class="dict-text">• 사냥 정신력이 해당 나이의 기준 이하일 때, 타예가 대기 상태에서 벗어난 뒤 사냥을 시작할 확률은 1/8로 고정됩니다.<br>• 정신력이 더 낮아져도 이 확률은 증가하지 않습니다.<br>• 타예는 플레이어를 시야에 두어도 시야 가속을 하지 않습니다.</p>
+
+            <div class="dict-section-title">활동·상호작용</div>
+            <p class="dict-text">• 타예가 유령 이벤트를 시도했을 때 성공 확률은 1 − 나이/9로 제시돼 있습니다.<br>• 노화 9회 후에는 저주받은 물건 등으로 강제하지 않는 한 유령 이벤트를 하지 않습니다.<br>• 문 상호작용 확률은 <strong>30%</strong>로, 일반 유령의 <strong>25%</strong>보다 높습니다.<br>• 타예의 나이가 증가할 때마다 위자드 보드가 알려주는 인간 나이는 1~4년 증가합니다. 위키는 현실적으로 도달 가능한 상한이 없다고 설명합니다.<br>• 타예의 시작 인간 나이는 다른 유령처럼 10~90세 범위일 수 있습니다.</p>
+
+            <div class="dict-section-title">식별·대응에 관한 자료의 설명</div>
+            <p class="dict-text">• 초반에는 활동과 이벤트가 잦아 유령을 찾기 쉽지만, 찾는 데 오래 걸리면 높은 사냥 정신력 기준과 빠른 속도 때문에 위험할 수 있습니다.<br>• 플레이어가 근처에 머물러 타예가 노화하면 사냥 속도와 활동성이 낮아집니다.<br>• 사냥 속도가 시간이 지나며 낮아지고, 시야 가속이 없다면 타예를 의심할 수 있습니다.<br>• 나이 4에서는 속도가 플레이어의 평균 달리기 속도보다 낮고, 나이 7에서는 걷는 속도보다 낮다고 안내돼 있습니다.<br>• 위자드 보드로 나이를 물어보고, 타예 근처에 머문 뒤 다시 물어 나이 증가를 확인하는 방법이 소개돼 있습니다. 위자드 보드는 정신력을 소모합니다.</p>
+
+            <div class="dict-section-title">다른 유령과 구별</div>
+            <p class="dict-text">• 위키는 오밤보와 혼동하지 말라고 안내합니다. 둘은 증거 두 개를 공유하지만, 오밤보는 시야 가속을 하며 사냥 중 속도가 바뀔 수 있다고 설명합니다.<br>• 위키는 미믹이 타예를 흉내 낼 때 무작위 나이를 선택한다고 적고 있습니다.</p>
+
+            <div class="dict-section-title">변경 이력</div>
+            <p class="dict-text">• 0.6.2.0: 타예 추가<br>• 0.6.2.1: 타예의 약점 조정<br>• 0.9.0: D.O.T.S. 프로젝터 및 고스트 라이팅 상호작용 확률 증가 제거</p>
+
+            <div class="dict-section-title">주의 및 출처</div>
+            <p class="dict-text">• 위키 페이지에는 타예가 바로 아래층에 있고 플레이어가 해당 방에 있을 때 노화하는 버그 주석이 있습니다.<br>• Steam 자료는 과거 버전의 내용이므로 현재 수치와 구분해 참고해야 합니다.<br><a href="https://phasmophobia.fandom.com/wiki/Thaye" target="_blank" rel="noopener">Phasmophobia Wiki – Thaye</a><br><a href="https://phasmopedia.com/en/ghosts/thaye/" target="_blank" rel="noopener">Phasmopedia – Thaye</a><br><a href="https://phasmo.guru/ghostspeeds/thaye" target="_blank" rel="noopener">Phasmo Guru – Thaye speeds</a><br><a href="https://store.steampowered.com/news/posts/?appids=739630&amp;enddate=1655809399&amp;feed=steam_community_announcements" target="_blank" rel="noopener">Kinetic Games / Steam – 과거 변경 자료</a></p>
         `
     },
     {
