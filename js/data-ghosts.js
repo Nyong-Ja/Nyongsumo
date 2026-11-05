@@ -1320,6 +1320,7 @@ const GHOST_DATA = [
         hasTargetRoam: false,
         isCustomDetailed: true,
         detailedHtml: `
+            <p class="dict-text">아래 내용은 확인 가능한 자료를 바탕으로 정리한 타예 정보입니다. 수치와 행동은 게임 버전에 따라 바뀔 수 있습니다. 타예의 핵심 특징은 플레이어 근처에서 나이를 먹고, 나이가 들수록 사냥 속도·사냥 정신력 기준·활동성이 낮아지는 것입니다.</p>
             <div class="dict-section-title">증거</div><p class="dict-text">• 고스트 오브<br>• 고스트 라이팅<br>• 도트 프로젝터</p>
             <div class="dict-section-title">강점과 약점</div><p class="dict-text">• <strong>강점:</strong> 계약 초기에 활동적이고 빠르며, 높은 평균 정신력에서도 사냥을 시작할 수 있습니다.<br>• <strong>약점:</strong> 플레이어가 근처에 머무르면 나이를 먹고, 시간이 지날수록 느려지고 활동성이 낮아집니다.</p>
             <div class="dict-section-title">고유 능력: 노화</div><p class="dict-text">• 계약 시작 후 약 1분이 지나면 노화를 시도합니다.<br>• 유령과 같은 방에 플레이어가 있거나 유령으로부터 약 3m 이내에 플레이어가 있으면 나이가 1 증가합니다.<br>• 노화에 성공하면 다음 시도는 약 1~2분 후입니다.<br>• 조건을 충족하지 못하면 약 30초 후 다시 시도합니다.<br>• 사냥 중 노화에 성공하더라도 능력치 변화는 사냥이 끝난 뒤 적용됩니다.<br>• 최대 나이는 10단계이며, 10단계 이후에는 더 이상 노화로 능력치가 감소하지 않습니다.</p>
@@ -1331,6 +1332,7 @@ const GHOST_DATA = [
             <div class="dict-section-title">식별 팁</div><p class="dict-text">• 초반에는 활동량이 많고 사냥 속도가 빠르다가, 플레이어가 근처에 머문 뒤 점점 느려지는지 관찰합니다.<br>• 사냥 중 시야가 확보되어도 속도가 증가하지 않는 점을 확인합니다.<br>• 위자 보드가 있다면 같은 질문으로 유령의 나이를 일정 시간 간격으로 물어봅니다. 나이가 증가하는 것은 타예의 단서입니다.<br>• 타예의 행동을 흉내 내는 미믹 가능성도 고려해야 합니다.</p>
             <div class="dict-section-title">조사 전략</div><p class="dict-text">• 초반 활동량이 높을 때 증거 수집과 비사냥 목표를 먼저 진행합니다.<br>• 초반 사냥 기준이 높고 속도가 빠를 수 있으므로, 숨을 장소와 도주 경로를 먼저 확인합니다.<br>• 나이가 들수록 사냥 위험이 줄어들 수 있지만, 이를 확인하기 전까지는 초기 타예의 빠른 속도를 전제로 대응하는 편이 안전합니다.<br>• 타예는 시간이 지나면서 약해지는 유형이므로, 초반과 후반의 속도·활동성 차이를 기록하면 식별에 도움이 됩니다.</p>
             <div class="dict-section-title">주의할 점</div><p class="dict-text">• 위자 보드에서 말하는 인간 나이와 타예의 내부 노화 단계는 같은 수치가 아닙니다. 위자 보드의 나이는 노화할 때마다 1~4년씩 증가할 수 있습니다.<br>• 사냥 정신력 기준 표의 수치와 실제 적용값 사이에 1%p 차이가 있다는 보고가 있습니다.<br>• 미믹이 타예를 모방할 때는 임의의 나이로 시작할 수 있으므로, 타예처럼 빠르거나 느리다는 사실만으로 확정하면 안 됩니다.</p>
+            <div class="dict-section-title">참고 자료</div><p class="dict-text"><a href="https://phasmophobia.fandom.com/wiki/Thaye" target="_blank" rel="noopener">Phasmophobia Wiki – Thaye</a><br><a href="https://phasmopedia.com/en/ghosts/thaye/" target="_blank" rel="noopener">Phasmopedia – Thaye</a><br><a href="https://tybayn.github.io/phasmo-cheat-sheet/?wiki=ghost-data.obake-fingerprints" target="_blank" rel="noopener">Zero-Network 치트시트</a></p>
         `
     },
     {
