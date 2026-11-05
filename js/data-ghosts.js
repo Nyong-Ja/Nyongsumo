@@ -1427,6 +1427,7 @@ const GHOST_DATA = [
             </p>
         `
     },
+    {
         name: "미믹",
         engName: "The_Mimic",
         evidences: ["주파수 측정기", "UV 라이트", "서늘함", "고스트 오브(가짜 증거)"],
