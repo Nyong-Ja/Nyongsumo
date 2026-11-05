@@ -20,6 +20,15 @@ function getGhostDetailHtml(ghost) {
         ''
     );
 
+    // 타예의 활동·상호작용 수치는 상세 본문에 누락된 경우에도 도감에 표시합니다.
+    if (ghost.engName === 'Thaye' && !detailBodyHtml.includes('유령 이벤트 시도 성공 확률')) {
+        detailBodyHtml += `
+            <div class="dict-section-title">활동·상호작용</div>
+            <p class="dict-text">• 유령 이벤트 시도 성공 확률은 1 − 나이/9로 제시돼 있습니다. 노화 9회 후에는 저주받은 물건 등으로 강제하지 않는 한 이벤트를 하지 않습니다.<br>
+            • 문 상호작용 확률은 30%로, 일반 유령의 25%보다 높습니다.</p>
+        `;
+    }
+
     const ghostVideoUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(`파스모포비아 ${ghost.name} 공략 필살기 뇽자`)}`;
 
     return `
