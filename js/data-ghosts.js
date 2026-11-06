@@ -11,7 +11,7 @@ const GHOST_DATA = [
               • <strong>이동 속도 및 시야 가속:</strong> 기본 이동 속도는 <strong>1.7 m/s</strong>이며, 표준 시야 가속(LOS Accel)이 정상 적용되어 최대 2.25 m/s까지 가속합니다.<br>
               • <strong>정화향초 봉인 특수 룰:</strong> 정화향초(Smudge Stick)에 정화될 경우, 일반 유령(90초)과 달리 <strong>180초(3분) 동안 사냥이 완전히 봉인</strong>됩니다.`,
         huntSanity: "50%",
-        specialTrait: "정화향초 방어 시간이 기본(90초)의 2배인 180초입니다.",
+        specialTrait: "정화향초 방어 시간이 기본(90초)의 2배인 180초입니다. 뇽스모뇽스모뇽스모뇽스모뇽스모뇽스모뇽스모",
         forcedEvidence: "없음",
         hasAccel: true,
         hasSpecialSpeed: false,
