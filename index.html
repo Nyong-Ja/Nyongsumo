@@ -30,12 +30,31 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "뇽스모",
-      "alternateName": "Nyongsumo",
-      "url": "https://nyong-ja.github.io/Nyongsumo/",
-      "inLanguage": "ko-KR",
-      "description": "파스모포비아 한국어 공략 사이트. 유령 도감, 증거 분석, 사냥 메커니즘, 장비 및 맵 정보를 제공합니다."
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://nyong-ja.github.io/Nyongsumo/#website",
+          "name": "뇽스모",
+          "alternateName": "Nyongsumo",
+          "url": "https://nyong-ja.github.io/Nyongsumo/",
+          "inLanguage": "ko-KR",
+          "description": "뇽스모(Nyongsumo)는 파스모포비아 한국어 공략 사이트입니다. 유령 도감, 증거 분석, 사냥 메커니즘, 장비 및 맵 정보를 제공합니다.",
+          "publisher": {
+            "@id": "https://nyong-ja.github.io/Nyongsumo/#organization"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://nyong-ja.github.io/Nyongsumo/#organization",
+          "name": "뇽스모",
+          "alternateName": "Nyongsumo",
+          "url": "https://nyong-ja.github.io/Nyongsumo/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nyong-ja.github.io/Nyongsumo/images/logo/logo.png"
+          }
+        }
+      ]
     }
     </script>
 
